@@ -1,2 +1,2 @@
 A client knowledgebase application as well as a way to access Downtime Forms
-when the system is experiencing issues, updates, or client cannot be found.
+when the system is unavailable or client cannot be found.
