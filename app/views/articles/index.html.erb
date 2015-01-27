@@ -1,1 +1,14 @@
-Index goes here
+<div id="custom-search-input">
+  <div class="input-group col-md-12">
+      <input type="text" class="  search-query form-control" placeholder="Search" />
+      <!-- search button goes here !-->
+  </div>
+</div>
+
+<div class="well">
+  <% @articles.each do |article| %>
+<%= link_to "#{article.question}", article_path(article) %>
+<br/>
+</p>
+  <% end %>
+</div>
