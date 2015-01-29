@@ -11,7 +11,9 @@
 
 <div class="well">
   <% @articles.each do |article| %>
-<%= link_to "#{article.question}", article_path(article) %>
+    <%= link_to "#{article.question}", article_path(article) %>
+    <div class="quiet">
+      <em><small><%= article.client_name %> <%= article.vdn %></small></em>
 <br/>
 </p>
   <% end %>
