@@ -1,11 +1,14 @@
-Client: <%= article.client_name %>
-<br/>
-VDN: <%= article.vdn %>
-<br/>
-<p>
-Question
-<br/>
-<%= simple_format h article.question %>
-<br/>
-<%= simple_format h article.answer %>
-</p>
+<div class='well'>
+  <strong>Client</strong>: <%= article.client_name %>
+  <br/>
+  <strong>VDN</strong>: <%= article.vdn %>
+  <br/>
+  <br/>
+  <p>
+  <strong>Question</strong>:
+  <%= simple_format h article.question %>
+  <br/>
+  <strong>Answer</strong>:
+  <%= simple_format h article.answer %>
+  </p>
+</div>

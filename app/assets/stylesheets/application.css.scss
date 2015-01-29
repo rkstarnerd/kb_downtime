@@ -23,10 +23,30 @@
   padding-left: 0px;
 }
 
-/* Prevent navbar from covering content */
-body {
-  padding-top: 65px;
+.quiet {
+  color: #ababab;
 }
+
+div.nav_item {
+  margin-left: 25px;
+  float: left;
+}
+
+.label, .badge {
+  a, a:hover, a:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+div.comment_votes {
+  padding: 10px;
+}
+
+.comment { display: none; }
+
+body { padding-top: 70px; }
+
 
 /* Search field */
 #custom-search-input {
