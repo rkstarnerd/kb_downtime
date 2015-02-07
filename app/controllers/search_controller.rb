@@ -3,7 +3,7 @@ class SearchController < ApplicationController
     if params[:q].nil?
       @articles = []
     else
-      @articles = Articles.search params[:q]
+      @articles = Article.search params[:q]
     end
   end
 end

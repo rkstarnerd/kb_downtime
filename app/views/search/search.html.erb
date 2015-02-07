@@ -1,0 +1,17 @@
+<%= form_for search_path, method: :get do |f| %>
+  <p>
+    <%= f.label "Search" %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Go", name: nil %>
+  </p>
+<% end %>
+
+<div class="well">
+  <% @articles.each do |article| %>
+    <%= link_to "#{article.question}", article_path(article) %>
+    <div class="quiet">
+      <em><small><%= article.client_name %> <%= article.vdn %></small></em>
+<br/>
+</p>
+  <% end %>
+</div>
