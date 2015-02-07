@@ -4,42 +4,44 @@
   </li>
 </ul>
 
-<!-- Downtime Forms dropdown menu !-->
-
-<div class='btn-group nav_item'>
-    <%= link_to '#', class: 'btn btn-small dropdown-toggle', 'data-toggle' => 'dropdown' do %>
-    Downtime Forms <span class='caret'></span>
-    <% end %>
-    <ul class='dropdown-menu'>
-        <li>
-           <%= link_to 'Compliance', '#' %>
-        </li>
-        <li>
-           <%= link_to 'General Liability', '#' %>
-        </li>
-        <li>
-           <%= link_to 'Worker\'s Comp', '#' %>
-        </li>
-        <li>
-           <%= link_to 'Auto Liability', '#' %>
-        </li>
-        <li>
-           <%= link_to 'CCQ', '#' %>
-        </li>
-        <li>
-           <%= link_to 'AIR', '#' %>
-        </li>
-    </ul>
-</div>
-
-<div class='nav_item'>
-  <%= link_to 'New Article', new_article_path, class: 'btn btn-success btn-small' %>
-</div>
-
-<div class='nav_item'>
-  <%= link_to 'Register', register_path, class: 'btn btn-success btn-small' %>
-</div>
-
-<div class='nav_item'>
-  <%= link_to 'Log in', login_path, class: 'btn btn-success btn-small' %>
-</div>
+<% if logged_in? %>
+  <!-- Downtime Forms dropdown menu !-->
+  <div class='btn-group nav_item'>
+      <%= link_to '#', class: 'btn btn-small dropdown-toggle', 'data-toggle' => 'dropdown' do %>
+      Downtime Forms <span class='caret'></span>
+      <% end %>
+      <ul class='dropdown-menu'>
+          <li>
+             <%= link_to 'Compliance', '#' %>
+          </li>
+          <li>
+             <%= link_to 'General Liability', '#' %>
+          </li>
+          <li>
+             <%= link_to 'Worker\'s Comp', '#' %>
+          </li>
+          <li>
+             <%= link_to 'Auto Liability', '#' %>
+          </li>
+          <li>
+             <%= link_to 'CCQ', '#' %>
+          </li>
+          <li>
+             <%= link_to 'AIR', '#' %>
+          </li>
+      </ul>
+  </div>
+  <div class='nav_item'>
+    <%= link_to 'New Article', new_article_path, class: 'btn btn-success btn-small' %>
+  </div>
+  <div class='nav_item'>
+    <%= link_to current_user.username, logout_path(current_user), class: 'btn btn-danger btn-small' %>
+  </div>
+<% else %>
+  <div class='nav_item'>
+    <%= link_to 'Register', register_path, class: 'btn btn-primary btn-small' %>
+  </div>
+  <div class='nav_item'>
+    <%= link_to 'Log in', login_path, class: 'btn btn-primary btn-small' %>
+  </div>
+<% end %>

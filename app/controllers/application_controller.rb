@@ -17,5 +17,6 @@ class ApplicationController < ActionController::Base
     if !logged_in?
       flash[:error] = "Log in or Register to do that."
       redirect_to :back
+    end
   end
 end

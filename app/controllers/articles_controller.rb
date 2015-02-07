@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:edit, :udpate]
+  before_action :set_article, only: [:edit, :update]
+  before_action :require_user, except: [:index, :show]
 
   def index
     if params[:q].nil?
