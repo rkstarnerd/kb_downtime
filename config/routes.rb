@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'search#search'
+  root 'articles#index'
   get 'search', to: 'search#search'
 
   resources :users, except: [:destroy] do

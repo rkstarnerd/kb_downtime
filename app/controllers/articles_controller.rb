@@ -1,11 +1,16 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :udpate]
+
   def index
-    @articles = Article.all
+    if params[:q].nil?
+      @articles = Article.all[0, 10]
+    else
+      @articles = Article.search params[:q]
+    end
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.find (params[:id])
   end
 
   def new
