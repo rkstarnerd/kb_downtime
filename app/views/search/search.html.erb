@@ -1,14 +1,14 @@
-<%= form_for search_path, method: :get do |f| %>
+<%= form_for articles_path, method: :get do |f| %>
   <p>
-    <%= f.label "Search" %>
+    <%= f.label "" %>
     <%= text_field_tag :q, params[:q] %>
-    <%= submit_tag "Go", name: nil %>
+    <%= submit_tag "Search", name: nil %>
   </p>
 <% end %>
 
 <div class="well">
   <% @articles.each do |article| %>
-    <%= link_to "#{article.question}", article_path(article) %>
+    <%= link_to "#{article.question}", article_path(article.id) %>
     <div class="quiet">
       <em><small><%= article.client_name %> <%= article.vdn %></small></em>
 <br/>
