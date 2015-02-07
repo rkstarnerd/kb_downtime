@@ -1,8 +1,10 @@
 <%= form_for articles_path, method: :get do |f| %>
   <p>
-    <%= f.label "" %>
-    <%= text_field_tag :q, params[:q] %>
-    <%= submit_tag "Search", name: nil %>
+    <center>
+      <%= f.label "" %>
+      <%= text_field_tag :q, params[:q] %>
+      <%= submit_tag "Search", name: nil %>
+    </center>
   </p>
 <% end %>
 
