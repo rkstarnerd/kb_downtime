@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
 
   resources :articles
+
+  resources :dt_crs, only: [:new]
 end
