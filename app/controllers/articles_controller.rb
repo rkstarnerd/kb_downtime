@@ -18,6 +18,10 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def edit
+    
+  end
+
   def create
     @article = Article.new(article_params)
 
@@ -26,6 +30,15 @@ class ArticlesController < ApplicationController
       redirect_to article_path(@article)
     else
       render 'new'
+    end
+  end
+
+  def update
+    if @article.update(article_params)
+      flash[:notice] = "The article was updated."
+      redirect_to article_path(@article)
+    else
+      render 'edit'
     end
   end
 end
