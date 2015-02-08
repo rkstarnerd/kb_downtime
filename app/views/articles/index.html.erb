@@ -12,7 +12,13 @@
   <% @articles.each do |article| %>
     <%= link_to "#{article.question}", article_path(article.id) %>
     <div class="quiet">
-      <em><small><%= article.client_name %> <%= article.vdn %></small></em>
+      <em><small>
+        <% if article.client_name.nil? || article.vdn.nil? %> 
+          <%= article.client_name %>
+        <% else %>
+          <%= article.client_name %> | <%= article.vdn  %>
+        <% end %>
+        </small></em>
 <br/>
 </p>
   <% end %>
