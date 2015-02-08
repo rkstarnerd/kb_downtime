@@ -35,7 +35,7 @@
     <%= link_to 'New Article', new_article_path, class: 'btn btn-success btn-small' %>
   </div>
   <div class='nav_item'>
-    <%= link_to 'User', logout_path(current_user), class: 'btn btn-warning btn-small' %>
+    <%= link_to "#{current_user.username} - Logout", logout_path(current_user), class: 'btn btn-warning btn-small' %>
   </div>
 <% else %>
   <div class='nav_item'>
