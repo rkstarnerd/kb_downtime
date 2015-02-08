@@ -1,12 +1,12 @@
-<ul class="navbar navbar-fixed-top">
-  <li>
-    <%= link_to "Knowledgebase", root_path, :class => 'brand' %>
-  </li>
+<ul class="nav navbar-default navbar-fixed-top">
+  <div class='container-fluid'>
+    <%= link_to "Knowledgebase", root_path, :class => 'navbar-brand' %>
+  </div>
 </ul>
 
 <% if logged_in? %>
   <!-- Downtime Forms dropdown menu !-->
-  <div class='btn-group nav_item'>
+  <div class='btn-group nav_item navbar-right'>
       <%= link_to '#', class: 'btn btn-small dropdown-toggle', 'data-toggle' => 'dropdown' do %>
         Downtime Forms <span class='caret'></span>
       <% end %>
@@ -31,17 +31,30 @@
           </li>
       </ul>
   </div>
-  <div class='nav_item'>
-    <%= link_to 'New Article', new_article_path, class: 'btn btn-success btn-small' %>
-  </div>
-  <div class='nav_item navbar-right'>
-    <%= link_to "#{current_user.username} - Logout", logout_path(current_user), class: 'btn btn-warning btn-small' %>
+  <div class='nav_item btn-group'>
+    <%= link_to '#', class: 'btn btn-small dropdown-toggle', 'data-toggle' => 'dropdown' do %>
+      <%= current_user.username %> <span class= 'caret'></span>
+    <% end %>
+    <ul class='dropdown-menu'>
+      <li>
+        <%= link_to new_article_path do %>
+          <i class='icon-plus'></i>
+          new article
+        <% end %>
+      </li>
+      <li>
+        <%= link_to logout_path(current_user) do %>
+          <i class='icon-circle-arrow-left'></i>
+          logout
+        <% end %>
+      </li>
+    </ul>
   </div>
 <% else %>
-  <div class='nav_item'>
-    <%= link_to 'Register', register_path, class: 'btn btn-primary btn-small' %>
+  <div class='nav_item navbar-right'>
+    <%= link_to 'Register', register_path %>
   </div>
-  <div class='nav_item'>
-    <%= link_to 'Log in', login_path, class: 'btn btn-primary btn-small' %>
+  <div class='nav_item navbar-right'>
+    <%= link_to 'Log in', login_path %>
   </div>
 <% end %>
