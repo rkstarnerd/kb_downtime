@@ -14,7 +14,7 @@ class Article < ActiveRecord::Base
         query: {
           multi_match: {
             query: query,
-            fields: ['question^4','client_name^3','answer']
+            fields: ['question^4','client_name^3','vdn','answer']
           }
         },
         highlight: {
