@@ -2,23 +2,4 @@
 
 <%= render 'error' %>
 
-
-<div class='well'>
-  <%= form_for @article do |f| %>
-    <div class='form-group'>
-      <%= f.label :client_name %><br/>
-      <%= f.text_field :client_name %>
-      <br>
-      <%= f.label :VDN.upcase %><br/>
-      <%= f.number_field :vdn %>
-      <br>
-      <%= f.label :title_or_question %><br/>
-      <%= f.text_area :question %>
-      <br>
-      <%= f.label :answer %><br/>
-      <%= f.text_area :answer %>
-      <br><br/>
-      <%= f.submit "Create Article", class: 'btn btn-primary' %>
-    </div>
-  <% end %>
-</div>
+<%= render 'form' %>
