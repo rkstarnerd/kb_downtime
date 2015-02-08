@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:edit, :update]
+  before_action :set_article, only: [:show, :edit, :update]
   before_action :require_user, except: [:index, :show]
 
   def index
@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find (params[:id])
+    
   end
 
   def new
@@ -41,7 +41,6 @@ class ArticlesController < ApplicationController
       render 'edit'
     end
   end
-end
 
 private
   def article_params
@@ -49,5 +48,6 @@ private
   end
 
   def set_article
-    @article = Article.find_by (params[:q])
+    @article = Article.find (params[:id])
   end
+end
