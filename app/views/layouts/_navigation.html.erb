@@ -1,4 +1,4 @@
-<ul class="nav navbar-fixed-top">
+<ul class="navbar navbar-fixed-top">
   <li>
     <%= link_to "Knowledgebase", root_path, :class => 'brand' %>
   </li>
@@ -34,7 +34,7 @@
   <div class='nav_item'>
     <%= link_to 'New Article', new_article_path, class: 'btn btn-success btn-small' %>
   </div>
-  <div class='nav_item'>
+  <div class='nav_item navbar-right'>
     <%= link_to "#{current_user.username} - Logout", logout_path(current_user), class: 'btn btn-warning btn-small' %>
   </div>
 <% else %>

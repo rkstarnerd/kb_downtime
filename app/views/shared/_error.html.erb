@@ -1,6 +1,6 @@
 <% if form.errors.any? %>
   <div class='row'>
-    <div class='alert alert-error span8'>
+    <div class='alert alert-dismissible alert-danger'>
       <h4>Could not be saved because of the following errors: </h4>
       <ul>
         <% form.errors.full_messages.each do |msg| %>
