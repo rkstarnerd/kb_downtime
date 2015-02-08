@@ -1,5 +1,4 @@
 <div class='well'>
-  <div class='pull-right'>Article: <%= @article.id %></div>
   <strong>Client</strong>: <%= article.client_name %>
   <br/>
   <strong>VDN</strong>: <%= article.vdn %>
@@ -12,4 +11,9 @@
   <strong>Answer</strong>:
   <%= simple_format h article.answer %>
   </p>
+  <small class='quiet'>Article: <%= @article.id %></small>
 </div>
+
+<% if logged_in? %>
+  <%= link_to 'Edit this article', edit_article_path(article) %>
+<% end %>
