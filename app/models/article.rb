@@ -14,15 +14,16 @@ class Article < ActiveRecord::Base
         query: {
           multi_match: {
             query: query,
-            fields: ['question^4','client_name^3','vdn^3','answer']
+            fields: ['question^4','client_name^3','answer']
           }
         },
         highlight: {
-          pre_tags: ['<i>'],
-          post_tags: ['</i>'],
+          pre_tags: ['<em>'],
+          post_tags: ['</em>'],
           fields: {
-            title: {},
-            text: {}
+            question: {},
+            answer: {},
+            client_name: {}
           }
         }
       }

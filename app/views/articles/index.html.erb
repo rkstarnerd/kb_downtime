@@ -10,15 +10,23 @@
 
 <div class="well">
   <% @articles.each do |article| %>
-    <%= link_to "#{article.question}", article_path(article.id) %>
+    <%= link_to article.try(:highlight).try(:question) ? article.highlight.question[0].html_safe : article.question,
+          controller: "articles",
+          action: "show",
+          id: article.id%>
+      <% if article.try(:highlight).try(:answer) %>
+        <% article.highlight.answer.each do |snippet| %>
+          <p><%= snippet.html_safe %>...</p>
+        <% end %>
+      <% end %>
     <div class="quiet">
-      <em><small>
+      <i><small>
         <% if article.client_name.nil? || article.vdn.nil? %> 
           <%= article.client_name %>
         <% else %>
           <%= article.client_name %> | <%= article.vdn  %>
         <% end %>
-        </small></em>
+        </small></i>
 <br/>
 </p>
   <% end %>
