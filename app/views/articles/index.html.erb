@@ -24,8 +24,8 @@
         <% end %>
       <div class="quiet">
         <small>
-          <% if article.client_name.nil? || article.vdn.nil? %> 
-            <%= article.client_name %>
+          <% if article.client_name.empty? || article.vdn.empty? %> 
+            General 
           <% else %>
             <%= article.client_name %> | <%= article.vdn  %>
           <% end %>

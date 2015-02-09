@@ -14,8 +14,8 @@ class Article < ActiveRecord::Base
         query: {
           multi_match: {
             query: query,
-            type: 'cross_fields',
-            fields: ['question^4','client_name^3','answer','vdn'] #TODO add search by vdn
+            fuzziness: 'auto',
+            fields: '_all'
           }
         },
         highlight: {
