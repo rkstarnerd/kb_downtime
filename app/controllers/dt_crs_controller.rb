@@ -9,6 +9,7 @@ class DtCrsController < ApplicationController
 
   def create
     @dt_cr = DtCr.new(dt_cr_params)
+    @dt_cr.user_id = current_user.id
 
     if @dt_cr.save
       flash[:notice] = "Please email the form to dissementations"
