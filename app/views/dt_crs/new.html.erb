@@ -2,10 +2,72 @@
   <div class="panel-heading">
     <h3 class="panel-title">Client Information</h3>
   </div>
-  <div class="panel-body">
+  <div class="panel-body container-fluid">
     <%= form_tag '/dt_crs' do %>
-      <%= label_tag :VDN %>
-      <%= number_field_tag :vdn %>
+      <table class='table'>
+        <tr>
+          <td>
+            <%= label_tag :vdn %><br/>
+            <%= text_field_tag :vdn %>
+          </td>
+          <td>
+            <%= label_tag :interviewer%><br/>
+            <%= current_user.username %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= label_tag :location_or_unit_number %><br/>
+            <%= text_field_tag :location %>
+          </td>
+          <td>
+            <%= label_tag :address_1 %><br/>
+            <%= text_field_tag :address_1 %>
+          </td>
+        </tr>
+          <td>
+            <%= label_tag :department %><br/>
+            <%= text_field_tag :department %>
+          </td>
+          <td>
+            <%= label_tag :address_2 %><br/>
+            <%= text_field_tag :address_2 %>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <%= label_tag :city %><br/>
+            <%= text_field_tag :city %>
+          </td>
+          <td>
+            <%= label_tag :state %><br/>
+            <%= text_field_tag 'state', size: 2 %>
+          </td> 
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <%= label_tag :zip_code %><br/>
+            <%= text_field_tag :zip_code %>
+          </td>   
+          <td>
+            <%= label_tag :country %><br/>
+            <%= text_field_tag :country %>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <%= label_tag :phone %><br/>
+            <%= phone_field_tag :phone %>
+          </td>   
+          <td>
+            <%= label_tag :fax %><br/>
+            <%= phone_field_tag :fax %>
+          </td>
+        </tr>
+      </table>
     <% end %>
   </div>
 </div>

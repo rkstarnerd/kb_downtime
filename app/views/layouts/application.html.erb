@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
   <title>KbDowntime</title>
-  <%= stylesheet_link_tag    'application', 'http://bootswatch.com/flatly/bootstrap.min.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', 'bootstrap', 'http://bootswatch.com/flatly/bootstrap.min.css', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= yield(:head) %>
