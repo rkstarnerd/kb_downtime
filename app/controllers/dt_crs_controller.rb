@@ -3,11 +3,16 @@ class DtCrsController < ApplicationController
     @dt_cr = DtCr.new
   end
 
+  def show
+    @dt_cr = DtCr.find (params[:id])
+  end
+
   def create
     @dt_cr = DtCr.new(dt_cr_params)
 
     if @dt_cr.save
       flash[:notice] = "Please email the form to dissementations"
+      redirect_to articles_path
     else
       render :back
     end
@@ -15,6 +20,6 @@ class DtCrsController < ApplicationController
 
   private
     def dt_cr_params
-      
+      params.require(:dt_cr).permit(:z_number, :user_id)
     end
 end
