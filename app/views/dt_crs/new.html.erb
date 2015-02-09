@@ -11,9 +11,12 @@
             <%= text_field_tag :vdn %>
           </td>
           <td>
-            <%= label_tag :interviewer%><br/>
+            <%= label_tag :interviewer %><br/>
             <%= current_user.username %>
           </td>
+          <td>
+            <%= label_tag :z_number %><br/>
+            <%= z_number(@dt_cr.id) %>
         </tr>
         <tr>
           <td>
@@ -42,7 +45,7 @@
           </td>
           <td>
             <%= label_tag :state %><br/>
-            <%= text_field_tag 'state', size: 2 %>
+            <%= text_field_tag :state %>
           </td> 
         </tr>
         <tr>
@@ -68,6 +71,7 @@
           </td>
         </tr>
       </table>
+      <!-- <%= submit_tag "Submit", class: 'btn btn-warning pull-right' %> !-->
     <% end %>
   </div>
 </div>
