@@ -13,7 +13,7 @@ class DtCrsController < ApplicationController
 
     if @dt_cr.save
       flash[:notice] = "Please email the form to dissementations"
-      redirect_to articles_path
+      redirect_to dt_cr_path(dt_cr)
     else
       render :back
     end
