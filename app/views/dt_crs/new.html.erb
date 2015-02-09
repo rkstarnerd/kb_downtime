@@ -1,0 +1,11 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3 class="panel-title">Client Information</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_tag '/dt_crs' do %>
+      <%= label_tag :VDN %>
+      <%= number_field_tag :vdn %>
+    <% end %>
+  </div>
+</div>
