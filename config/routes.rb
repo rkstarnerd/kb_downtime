@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   resources :articles
 
-  resources :dt_crs, only: [:new]
+  resources :dt_crs, only: [:new, :create]
 end

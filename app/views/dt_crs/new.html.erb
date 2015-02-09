@@ -3,6 +3,9 @@
     <h3 class="panel-title">Client Information</h3>
   </div>
   <div class="panel-body">
-    Panel content
+    <%= form_tag '/dt_crs' do %>
+      <%= label_tag :VDN %>
+      <%= number_field_tag :vdn %>
+    <% end %>
   </div>
 </div>
