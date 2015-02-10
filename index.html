@@ -1,0 +1,39 @@
+<%= form_for articles_path, method: :get do |f| %>
+  <p>
+    <div class='form-group'>
+      <center>
+        <div class='input-group'>
+          <%= text_field_tag :q, params[:q], class: 'control-label' %>
+          <%= submit_tag "Search", name: nil, class: 'btn btn-success' %>
+      </center>
+  </div>
+  </p>
+<% end %>
+
+<div class="well">
+  <% if @articles.size > 0 %>
+    <% @articles.each do |article| %>
+      <%= link_to article.try(:highlight).try(:question) ? article.highlight.question[0].html_safe : article.question,
+            controller: "articles",
+            action: "show",
+            id: article.id%>
+        <% if article.try(:highlight).try(:answer) %>
+          <% article.highlight.answer.each do |snippet| %>
+            <p><%= snippet.html_safe %>...</p>
+          <% end %>
+        <% end %>
+      <div class="quiet">
+        <small>
+          <% if article.client_name.empty? || article.vdn.empty? %>
+            General
+          <% else %>
+            <%= article.client_name %> | <%= article.vdn  %>
+          <% end %>
+        </small>
+  <br/>
+  </p>
+    <% end %>
+  <% else %>
+    No articles matched your search.
+  <% end %>
+</div>
