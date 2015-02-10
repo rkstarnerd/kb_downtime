@@ -8,10 +8,10 @@ This application also gives a way to create Downtime Forms and forward them to t
 
 #####Purpose:
 
-  • The Knowledgebase will evolve with every question and answer which will assist in meeting business needs/goals by providing consistent and accurate information and reports for our clients.
-  • Assist in decreasing AHT and ACW. As more answers are more easily accessible, Interviewers will spend less time putting customers on hold and calling the Answer-line or searching for information through a mountain of emails.
-  • Allow the QA/Escalations team and SOD to focus more on QA and Escalation tasks
-  • As the Knowledgebase evolves it should replace the Answer-line with the exception of new, unique, and undocumented cases.
+  - The Knowledgebase will evolve with every question and answer which will assist in meeting business needs/goals by providing consistent and accurate information and reports for our clients.
+  - Assist in decreasing AHT and ACW. As more answers are more easily accessible, Interviewers will spend less time putting customers on hold and calling the Answer-line or searching for information through a mountain of emails.
+  - Allow the QA/Escalations team and SOD to focus more on QA and Escalation tasks.
+  - As the Knowledgebase evolves it should replace the Answer-line with the exception of new, unique, and undocumented cases.
 
 
 #####Features will include:
