@@ -12,10 +12,10 @@ class DtCrsController < ApplicationController
     @dt_cr.user_id = current_user.id
 
     if @dt_cr.save
-      flash[:notice] = "Please email the form to dissementations"
-      redirect_to dt_cr_path(dt_cr)
+      flash[:notice] = "Click Email to send the form to dissementations"
+      redirect_to dt_cr_path(@dt_cr)
     else
-      render :back
+      render 'new'
     end
   end
 

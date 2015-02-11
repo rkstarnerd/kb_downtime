@@ -408,7 +408,7 @@
               </td>
               <td>
                 <%= label_tag :involved_role_1 %><br/>
-                <%= text_field_tag :involved_role_1 %>
+                <%= select_tag :involved_role_1 %>
               </td>
             </tr>
             <tr>
@@ -432,7 +432,7 @@
               </td>
               <td>
                 <%= label_tag :involved_role_2 %><br/>
-                <%= text_field_tag :involved_role_2 %>
+                <%= select_tag :involved_role_2 %>
               </td>
             </tr>
               <tr>
@@ -456,7 +456,7 @@
               </td>
               <td>
                 <%= label_tag :involved_role_3 %><br/>
-                <%= text_field_tag :involved_role_3 %>
+                <%= select_tag :involved_role_3 %>
               </td>
             </tr>
           </table>
@@ -465,5 +465,95 @@
     </div>
   </div>
 
-<!-- <%= submit_tag "Submit", class: 'btn btn-warning pull-right' %> !-->
+<div class="panel panel-warning">
+    <div class="panel-heading" role="tab" id="headingSix">
+      <h3 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        Incident Information
+        <i class='icon-chevron-down'></i>
+        </a>
+      </h3>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+      <div class="panel-body container-fluid">
+        <%= form_tag '/dt_crs' do %>
+          <table class='table'>
+            <tr>
+              <td>
+                <%= label_tag :when_incident_occurred %><br/>
+                <%= text_field_tag :when_incident_occurred %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :incident_description %><br/>
+                <%= text_area_tag :incident_description %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :where_incident_occurred %><br/>
+                <%= text_field_tag :where_incident_occurred %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :how_do_you_know_of_the_incident %><br/>
+                <%= select_tag "when_incident_occurred", "<option>Heard from Others</option><option>Involved</option><option>Overheard</option><option>Victim</option><option>Witnessed</option><option>Would Not State</option><option>Other</option><option>Unknown</option>".html_safe, :include_blank => true %>
+              </td>
+              <td>
+                <%= label_tag :supporting_documentation %></br>
+                <%= text_field_tag :supporting_documentation %>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+<div class="panel panel-warning">
+    <div class="panel-heading" role="tab" id="headingSeven">
+      <h3 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+        Coding Information
+        <i class='icon-chevron-down'></i>
+        </a>
+      </h3>
+    </div>
+    <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+      <div class="panel-body container-fluid">
+        <%= form_tag '/dt_crs' do %>
+          <table class='table'>
+            <tr>
+              <td>
+                <%= label_tag :code %>
+                <%= select_tag "code", "<option>Conflict of Interest</option><option>Customer Relations</option><option>Discrimination</option><option>Employee Relations</option><option>Falsification of Company Records</option><option>Fraud</option><option>Fraudulent Insurance Claims</option><option>Kickbacks</option><option>Policy Issues</option><option>Product Quality Concern</option><option>Release of Proprietary Information</option><option>Safety and Sanitation Issues</option><option>Sexual Harrasment</option><option>Substance Abuse</option><option>Theft of Cash</option><option>Theft of Goods and Services</option><option>Theft of Time</option><option>Unauthorized Discounts</option><option>Wage/Hour Issues</option><option>Workplace Violence</option>".html_safe, :include_blank => true %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :are_there_plans_for_this_to_occur_within_the_next_24_hours_? %>
+                <%= label_tag :yes %> <%= check_box_tag :yes %> <%= label_tag :no %> <%= check_box_tag :no %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :where %>
+                <%= text_field_tag :where %>
+              </td>
+              <td>
+                <%= label_tag :when %>
+                <%= text_field_tag :when %>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div
+
 </div>
+<br>
+<%= submit_tag "Submit", class: 'btn btn-warning pull-right' %>
