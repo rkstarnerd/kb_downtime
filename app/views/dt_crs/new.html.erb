@@ -1,77 +1,192 @@
-<div class="panel panel-warning">
-  <div class="panel-heading">
-    <h3 class="panel-title">Client Information</h3>
-  </div>
-  <div class="panel-body container-fluid">
-    <%= form_tag '/dt_crs' do %>
-      <table class='table'>
-        <tr>
-          <td>
-            <%= label_tag :vdn %><br/>
-            <%= text_field_tag :vdn %>
-          </td>
-          <td>
-            <%= label_tag :interviewer %><br/>
-            <%= current_user.username %>
-          </td>
-          <td>
-            <%= label_tag :z_number %><br/>
-            <%= z_number(@dt_cr.id) %>
-        </tr>
-        <tr>
-          <td>
-            <%= label_tag :location_or_unit_number %><br/>
-            <%= text_field_tag :location %>
-          </td>
-          <td>
-            <%= label_tag :address_1 %><br/>
-            <%= text_field_tag :address_1 %>
-          </td>
-        </tr>
-          <td>
-            <%= label_tag :department %><br/>
-            <%= text_field_tag :department %>
-          </td>
-          <td>
-            <%= label_tag :address_2 %><br/>
-            <%= text_field_tag :address_2 %>
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            <%= label_tag :city %><br/>
-            <%= text_field_tag :city %>
-          </td>
-          <td>
-            <%= label_tag :state %><br/>
-            <%= text_field_tag :state %>
-          </td> 
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            <%= label_tag :zip_code %><br/>
-            <%= text_field_tag :zip_code %>
-          </td>   
-          <td>
-            <%= label_tag :country %><br/>
-            <%= text_field_tag :country %>
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            <%= label_tag :phone %><br/>
-            <%= phone_field_tag :phone %>
-          </td>   
-          <td>
-            <%= label_tag :fax %><br/>
-            <%= phone_field_tag :fax %>
-          </td>
-        </tr>
-      </table>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-warning">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h3 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Client Information
+        </a>
+      </h3>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body container-fluid">
+        <%= form_tag '/dt_crs' do %>
+          <table class='table'>
+            <tr>
+              <td>
+                <%= label_tag :vdn %><br/>
+                <%= text_field_tag :vdn %>
+              </td>
+              <td>
+                <%= label_tag :interviewer %><br/>
+                <%= current_user.username %>
+              </td>
+              <td>
+                <%= label_tag :z_number %><br/>
+                <%= z_number(@dt_cr.id) %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :location_or_unit_number %><br/>
+                <%= text_field_tag :location %>
+              </td>
+              <td>
+                <%= label_tag :address_1 %><br/>
+                <%= text_field_tag :address_1 %>
+              </td>
+            </tr>
+              <td>
+                <%= label_tag :department %><br/>
+                <%= text_field_tag :department %>
+              </td>
+              <td>
+                <%= label_tag :address_2 %><br/>
+                <%= text_field_tag :address_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <%= label_tag :city %><br/>
+                <%= text_field_tag :city %>
+              </td>
+              <td>
+                <%= label_tag :state %><br/>
+                <%= text_field_tag :state %>
+              </td> 
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <%= label_tag :zip_code %><br/>
+                <%= text_field_tag :zip_code %>
+              </td>   
+              <td>
+                <%= label_tag :country %><br/>
+                <%= text_field_tag :country %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <%= label_tag :phone %><br/>
+                <%= phone_field_tag :phone %>
+              </td>   
+              <td>
+                <%= label_tag :fax %><br/>
+                <%= phone_field_tag :fax %>
+              </td>
+            </tr>
+          </table>
       <!-- <%= submit_tag "Submit", class: 'btn btn-warning pull-right' %> !-->
-    <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-warning">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h3 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Caller Information
+        </a>
+      </h3>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body container-fluid">
+        <%= form_tag '/dt_crs' do %>
+          <table class='table'>
+            <tr>
+              <td>
+                <%= label_tag :name_declined %><br/>
+                <%= check_box_tag :declined %>
+              </td>
+              <td>
+                <%= label_tag :unit %><br/>
+                <%= text_field_tag :unit %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :first_name%><br/>
+                <%= text_field_tag :caller_first_name%>
+              </td>
+              <td>
+                <%= label_tag :name %><br/>
+                <%= text_field_tag :caller_last_name %>
+              </td>
+            </tr>
+              <td>
+                <%= label_tag :last_name %><br/>
+                <%= text_field_tag :last_name_1 %>
+              </td>
+              <td>
+                <%= label_tag :address_1 %><br/>
+                <%= text_field_tag :address_1_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :caller_type %><br/>
+                <%= select_tag :caller_type %>
+              </td>
+              <td>
+                <%= label_tag :address_2 %><br/>
+                <%= text_field_tag :address_2_2 %>
+              </td> 
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :title %><br/>
+                <%= text_field_tag :caller_title %>
+              </td>   
+              <td>
+                <%= label_tag :city %><br/>
+                <%= text_field_tag :city_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :when_to_call %><br/>
+                <%= text_field_tag :when_to_call %>
+              </td>   
+              <td>
+                <%= label_tag :state %><br/>
+                <%= text_field_tag :state_2 %>
+              </td>
+              <td>
+                <%= label_tag :zip_code %><br/>
+                <%= text_field_tag :zip_code_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :phone %><br/>
+                <%= phone_field_tag :caller_phone %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :ext %><br/>
+                <%= phone_field_tag :caller_ext %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :email %><br/>
+                <%= email_field_tag :caller_email %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= label_tag :how_did_you_learn_about_the_hotline %><br/>
+                <%= select_tag :how_did_you_learn %>
+              </td>
+            </tr>
+          </table>
+      <!-- <%= submit_tag "Submit", class: 'btn btn-warning pull-right' %> !-->
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
