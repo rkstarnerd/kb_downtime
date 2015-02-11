@@ -12,8 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
-//= require bootstrap-transition.js
-//= require bootstrap-collapse.js
 //= require turbolinks
 //= require_tree .
