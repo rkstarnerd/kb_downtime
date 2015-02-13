@@ -8,6 +8,8 @@ class Article < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  index_name BONSAI_INDEX_NAME
+
   def self.search(query)
     __elasticsearch__.search(
       {
