@@ -31,6 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'
