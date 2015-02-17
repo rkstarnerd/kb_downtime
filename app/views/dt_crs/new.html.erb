@@ -1,5 +1,7 @@
 <%= render 'shared/form_heading', title: 'Compliance Downtime Form' %>
 
+<%= form_tag '/dt_crs' do %>
+<div class ="dt_forms">
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-warning">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -11,7 +13,6 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body container-fluid">
-        <%= form_tag '/dt_crs' do %>
           <table class='table'>
             <tr>
               <td>
@@ -96,7 +97,6 @@
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body container-fluid">
-        <%= form_tag '/dt_crs' do %>
           <table class='table'>
             <tr>
               <td>
@@ -186,7 +186,6 @@
               </td>
             </tr>
           </table>
-        <% end %>
       </div>
     </div>
   </div>
@@ -202,7 +201,6 @@
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body container-fluid">
-        <%= form_tag '/dt_crs' do %>
           <table class='table'>
             <tr>
               <td>
@@ -265,7 +263,6 @@
               </td>
             </tr>
           </table>
-        <% end %>
       </div>
     </div>
   </div>
@@ -282,7 +279,6 @@
     </div>
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="panel-body container-fluid">
-        <%= form_tag '/dt_crs' do %>
           <table class='table'>
             <tr>
               <td>
@@ -369,7 +365,6 @@
               </td>
             </tr>
           </table>
-        <% end %>
       </div>
     </div>
   </div>
@@ -385,7 +380,6 @@
     </div>
     <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
       <div class="panel-body container-fluid">
-        <%= form_tag '/dt_crs' do %>
           <table class='table'>
             <tr>
               <td>
@@ -460,7 +454,6 @@
               </td>
             </tr>
           </table>
-        <% end %>
       </div>
     </div>
   </div>
@@ -476,7 +469,6 @@
     </div>
     <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
       <div class="panel-body container-fluid">
-        <%= form_tag '/dt_crs' do %>
           <table class='table'>
             <tr>
               <td>
@@ -507,7 +499,6 @@
               </td>
             </tr>
           </table>
-        <% end %>
       </div>
     </div>
   </div>
@@ -549,11 +540,9 @@
               </td>
             </tr>
           </table>
-        <% end %>
       </div>
     </div>
-  </div
-
+  </div><br/>
 </div>
-<br>
+<% end %>
 <%= submit_tag "Submit", class: 'btn btn-warning pull-right' %>
