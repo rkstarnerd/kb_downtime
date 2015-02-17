@@ -15,7 +15,7 @@
           <table class='table'>
             <tr>
               <td>
-                <%= label_tag :vdn %><br/>
+                <%= label_tag :vdn, 'VDN' %><br/>
                 <%= text_field_tag :vdn %>
               </td>
               <td>
@@ -100,7 +100,7 @@
           <table class='table'>
             <tr>
               <td>
-                <%= label_tag :name_declined %><br/>
+                <%= label_tag :name_declined, 'Name Declined' %><br/>
                 <%= check_box_tag :declined %>
               </td>
               <td>
@@ -534,7 +534,7 @@
             </tr>
             <tr>
               <td>
-                <%= label_tag :are_there_plans_for_this_to_occur_within_the_next_24_hours_? %>
+                <%= label_tag :are_there_plans_for_this_to_occur_within_the_next_24_hours_? %><br/>
                 <%= label_tag :yes %> <%= check_box_tag :yes %> <%= label_tag :no %> <%= check_box_tag :no %>
               </td>
             </tr>
