@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :require_user, except: [:index, :show]
 
   def index
@@ -40,6 +40,15 @@ class ArticlesController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @article.destroy
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end    
   end
 
 private

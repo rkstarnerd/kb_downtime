@@ -15,5 +15,6 @@
 </div>
 
 <% if logged_in? %>
-  <%= link_to 'Edit this article', edit_article_path(article) %>
+  <%= link_to 'Edit this article', edit_article_path(article) %><br/>
+  <%= link_to 'Delete this article', article_path(article), confirm: 'Are you sure?', method: :delete %>
 <% end %>
