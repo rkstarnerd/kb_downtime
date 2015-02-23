@@ -78,6 +78,7 @@ GEM
     minitest (5.5.1)
     multi_json (1.10.1)
     multipart-post (2.0.0)
+    nested_form (0.3.2)
     pg (0.17.1)
     pg (0.17.1-x86-mingw32)
     pry (0.10.1)
@@ -170,6 +171,7 @@ DEPENDENCIES
   elasticsearch-rails
   jbuilder (~> 2.0)
   jquery-rails
+  nested_form
   pg
   pry
   quiet_assets
