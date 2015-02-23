@@ -1,7 +1,8 @@
 <%= render 'shared/form_heading', title: 'Compliance Downtime Form' %>
 
-<%= form_tag '/dt_crs' do %>
+
 <div class ="dt_forms">
+<%= form_for (@dt_cr) do |f| %>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-warning">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -16,68 +17,68 @@
           <table class='table'>
             <tr>
               <td>
-                <%= label_tag :vdn, 'VDN' %><br/>
-                <%= text_field_tag :vdn %>
+                <%= f.label :vdn, 'VDN' %><br/>
+                <%= f.text_field :vdn %>
               </td>
               <td>
-                <%= label_tag :interviewer %><br/>
+                <%= f.label :interviewer %><br/>
                 <%= current_user.username %>
               </td>
               <td>
-                <%= label_tag :z_number %><br/>
+                <%= f.label :z_number %><br/>
                 <%= z_number(@dt_cr.id) %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :location_or_unit_number %><br/>
-                <%= text_field_tag :location %>
+                <%= f.label :location_or_unit_number %><br/>
+                <%= f.text_field :location %>
               </td>
               <td>
-                <%= label_tag :address_1 %><br/>
-                <%= text_field_tag :address_1 %>
-              </td>
-            </tr>
-              <td>
-                <%= label_tag :department %><br/>
-                <%= text_field_tag :department %>
-              </td>
-              <td>
-                <%= label_tag :address_2 %><br/>
-                <%= text_field_tag :address_2 %>
+                <%= f.label :address_1 %><br/>
+                <%= f.text_field :address_1 %>
               </td>
             </tr>
-            <tr>
-              <td></td>
               <td>
-                <%= label_tag :city %><br/>
-                <%= text_field_tag :city %>
+                <%= f.label :department %><br/>
+                <%= f.text_field :department %>
               </td>
               <td>
-                <%= label_tag :state %><br/>
-                <%= text_field_tag :state %>
+                <%= f.label :address_2 %><br/>
+                <%= f.text_field :address_2 %>
               </td>
             </tr>
             <tr>
               <td></td>
               <td>
-                <%= label_tag :zip_code %><br/>
-                <%= text_field_tag :zip_code %>
+                <%= f.label :city %><br/>
+                <%= f.text_field :city %>
               </td>
               <td>
-                <%= label_tag :country %><br/>
-                <%= text_field_tag :country %>
+                <%= f.label :state %><br/>
+                <%= f.text_field :state %>
               </td>
             </tr>
             <tr>
               <td></td>
               <td>
-                <%= label_tag :phone %><br/>
-                <%= phone_field_tag :phone %>
+                <%= f.label :zip_code %><br/>
+                <%= f.text_field :zip_code %>
               </td>
               <td>
-                <%= label_tag :fax %><br/>
-                <%= phone_field_tag :fax %>
+                <%= f.label :country %><br/>
+                <%= f.text_field :country %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <%= f.label :phone %><br/>
+                <%= f.phone_field :phone %>
+              </td>
+              <td>
+                <%= f.label :fax %><br/>
+                <%= f.phone_field :fax %>
               </td>
             </tr>
           </table>
@@ -85,7 +86,7 @@
       </div>
     </div>
   </div>
-
+<%= form_for (@dt_cr) do |f| %>
   <div class="panel panel-warning">
     <div class="panel-heading" role="tab" id="headingTwo">
       <h3 class="panel-title">
@@ -100,89 +101,89 @@
           <table class='table'>
             <tr>
               <td>
-                <%= label_tag :name_declined, 'Name Declined' %><br/>
-                <%= check_box_tag :declined %>
+                <%= f.label :name_declined, 'Name Declined' %><br/>
+                <%= f.check_box :declined %>
               </td>
               <td>
-                <%= label_tag :unit %><br/>
-                <%= text_field_tag :unit %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <%= label_tag :first_name%><br/>
-                <%= text_field_tag :caller_first_name%>
-              </td>
-              <td>
-                <%= label_tag :name %><br/>
-                <%= text_field_tag :caller_last_name %>
-              </td>
-            </tr>
-              <td>
-                <%= label_tag :last_name %><br/>
-                <%= text_field_tag :last_name_1 %>
-              </td>
-              <td>
-                <%= label_tag :address_1 %><br/>
-                <%= text_field_tag :address_1_2 %>
+                <%= f.label :unit %><br/>
+                <%= f.text_field :unit %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :caller_type %><br/>
-                <%= select_tag "caller_type", "<option>Customer</option><option>Employee</option><option>Former Employee</option><option>Other</option><option>Unknown</option>".html_safe, :include_blank => true %>
+                <%= f.label :first_name%><br/>
+                <%= f.text_field :caller_first_name%>
               </td>
               <td>
-                <%= label_tag :address_2 %><br/>
-                <%= text_field_tag :address_2_2 %>
+                <%= f.label :name %><br/>
+                <%= f.text_field :name %>
+              </td>
+            </tr>
+              <td>
+                <%= f.label :last_name %><br/>
+                <%= f.text_field :caller_last_name %>
+              </td>
+              <td>
+                <%= f.label :address_1 %><br/>
+                <%= f.text_field :address_1_2 %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :title %><br/>
-                <%= text_field_tag :caller_title %>
+                <%= f.label :caller_type %><br/>
+                <%= f.select "caller_type", "<option>Customer</option><option>Employee</option><option>Former Employee</option><option>Other</option><option>Unknown</option>".html_safe, :include_blank => true %>
               </td>
               <td>
-                <%= label_tag :city %><br/>
-                <%= text_field_tag :city_2 %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <%= label_tag :when_to_call %><br/>
-                <%= text_field_tag :when_to_call %>
-              </td>
-              <td>
-                <%= label_tag :state %><br/>
-                <%= text_field_tag :state_2 %>
-              </td>
-              <td>
-                <%= label_tag :zip_code %><br/>
-                <%= text_field_tag :zip_code_2 %>
+                <%= f.label :address_2 %><br/>
+                <%= f.text_field :address_2_2 %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :phone %><br/>
-                <%= phone_field_tag :caller_phone %>
+                <%= f.label :title %><br/>
+                <%= f.text_field :caller_title %>
+              </td>
+              <td>
+                <%= f.label :city %><br/>
+                <%= f.text_field :city_2 %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :ext %><br/>
-                <%= phone_field_tag :caller_ext %>
+                <%= f.label :when_to_call %><br/>
+                <%= f.text_field :when_to_call %>
+              </td>
+              <td>
+                <%= f.label :state %><br/>
+                <%= f.text_field :state_2 %>
+              </td>
+              <td>
+                <%= f.label :zip_code %><br/>
+                <%= f.text_field :zip_code_2 %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :email %><br/>
-                <%= email_field_tag :caller_email %>
+                <%= f.label :phone %><br/>
+                <%= f.phone_field :caller_phone %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :how_did_you_learn_about_the_hotline %><br/>
-                <%= select_tag "how_did_you_learn", "<option>Employee</option><option>Handbook</option><option>HR</option><option>Intranet</option><option>Manager</option><option>Poster</option><option>Sign</option><option>Video</option><option>Wallet Card</option><option>Other</option><option>Unknown</option>".html_safe, :include_blank => true %>
+                <%= f.label :ext %><br/>
+                <%= f.phone_field :caller_ext %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :email %><br/>
+                <%= f.email_field :caller_email %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :how_did_you_learn_about_the_hotline %><br/>
+                <%= f.select "how_did_you_learn", "<option>Employee</option><option>Handbook</option><option>HR</option><option>Intranet</option><option>Manager</option><option>Poster</option><option>Sign</option><option>Video</option><option>Wallet Card</option><option>Other</option><option>Unknown</option>".html_safe, :include_blank => true %>
               </td>
             </tr>
           </table>
@@ -204,62 +205,62 @@
           <table class='table'>
             <tr>
               <td>
-                <%= label_tag :responsible_first_name_1 %><br/>
-                <%= text_field_tag :responsible_first_name_1 %>
+                <%= f.label :responsible_first_name_1 %><br/>
+                <%= f.text_field :responsible_first_name_1 %>
               </td>
               <td>
-                <%= label_tag :responsible_last_name_1 %><br/>
-                <%= text_field_tag :responsible_last_name_1 %>
+                <%= f.label :responsible_last_name_1 %><br/>
+                <%= f.text_field :responsible_last_name_1 %>
               </td>
               <td>
-                <%= label_tag :responsible_title_name_1 %><br/>
-                <%= text_field_tag :responsible_title_name_1 %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <%= label_tag :responsible_description_1 %> <small class"quiet">(if unknown)</small><br/>
-                <%= text_area_tag :responsible_description_1 %>
+                <%= f.label :responsible_title_name_1 %><br/>
+                <%= f.text_field :responsible_title_name_1 %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :responsible_first_name_2 %><br/>
-                <%= text_field_tag :responsible_first_name_2 %>
-              </td>
-              <td>
-                <%= label_tag :responsible_last_name_2 %><br/>
-                <%= text_field_tag :responsible_last_name_2 %>
-              </td>
-              <td>
-                <%= label_tag :responsible_title_name_2 %><br/>
-                <%= text_field_tag :responsible_title_name_2 %>
+                <%= f.label :responsible_description_1 %> <small class"quiet">(if unknown)</small><br/>
+                <%= f.text_area :responsible_description_1 %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :responsible_description_2 %>  <small class"quiet">(if unknown)</small><br/>
-                <%= text_area_tag :responsible_description_2 %>
+                <%= f.label :responsible_first_name_2 %><br/>
+                <%= f.text_field :responsible_first_name_2 %>
+              </td>
+              <td>
+                <%= f.label :responsible_last_name_2 %><br/>
+                <%= f.text_field :responsible_last_name_2 %>
+              </td>
+              <td>
+                <%= f.label :responsible_title_name_2 %><br/>
+                <%= f.text_field :responsible_title_name_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :responsible_description_2 %>  <small class"quiet">(if unknown)</small><br/>
+                <%= f.text_area :responsible_description_2 %>
               </td>
             </tr>
               <tr>
               <td>
-                <%= label_tag :responsible_first_name_3 %><br/>
-                <%= text_field_tag :responsible_first_name_3 %>
+                <%= f.label :responsible_first_name_3 %><br/>
+                <%= f.text_field :responsible_first_name_3 %>
               </td>
               <td>
-                <%= label_tag :responsible_last_name_3 %><br/>
-                <%= text_field_tag :responsible_last_name_3 %>
+                <%= f.label :responsible_last_name_3 %><br/>
+                <%= f.text_field :responsible_last_name_3 %>
               </td>
               <td>
-                <%= label_tag :responsible_title_name_3 %><br/>
-                <%= text_field_tag :responsible_title_name_3 %>
+                <%= f.label :responsible_title_name_3 %><br/>
+                <%= f.text_field :responsible_title_name_3 %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :responsible_description_3 %> <small class"quiet">(if unknown)</small><br/>
-                <%= text_area_tag :responsible_description_3 %>
+                <%= f.label :responsible_description_3 %> <small class"quiet">(if unknown)</small><br/>
+                <%= f.text_area :responsible_description_3 %>
               </td>
             </tr>
           </table>
@@ -282,86 +283,86 @@
           <table class='table'>
             <tr>
               <td>
-                <%= label_tag :manager_first_name_1 %><br/>
-                <%= text_field_tag :manager_first_name_1 %>
+                <%= f.label :manager_first_name_1 %><br/>
+                <%= f.text_field :manager_first_name_1 %>
               </td>
               <td>
-                <%= label_tag :manager_last_name_1 %><br/>
-                <%= text_field_tag :manager_last_name_1 %>
+                <%= f.label :manager_last_name_1 %><br/>
+                <%= f.text_field :manager_last_name_1 %>
               </td>
               <td>
-                <%= label_tag :manager_title_name_1 %><br/>
-                <%= text_field_tag :manager_title_name_1 %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <%= label_tag :manager_phone_1 %><br/>
-                <%= phone_field_tag :manager_phone_1 %>
-              </td>
-              <td>
-                <%= label_tag :date_notified_1 %><br/>
-                <%= text_field_tag :date_notified_1 %>
-              </td>
-              <td>
-                <%= label_tag :action_1 %><br/>
-                <%= text_area_tag :action_1 %>
+                <%= f.label :manager_title_name_1 %><br/>
+                <%= f.text_field :manager_title_name_1 %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :manager_first_name_2 %><br/>
-                <%= text_field_tag :manager_first_name_2 %>
+                <%= f.label :manager_phone_1 %><br/>
+                <%= f.phone_field :manager_phone_1 %>
               </td>
               <td>
-                <%= label_tag :manager_last_name_2 %><br/>
-                <%= text_field_tag :manager_last_name_2 %>
+                <%= f.label :date_notified_1 %><br/>
+                <%= f.text_field :date_notified_1 %>
               </td>
               <td>
-                <%= label_tag :manager_title_name_2 %><br/>
-                <%= text_field_tag :manager_title_name_2 %>
+                <%= f.label :action_1 %><br/>
+                <%= f.text_area :action_1 %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :manager_phone_2 %><br/>
-                <%= phone_field_tag :manager_phone_2 %>
+                <%= f.label :manager_first_name_2 %><br/>
+                <%= f.text_field :manager_first_name_2 %>
               </td>
               <td>
-                <%= label_tag :date_notified_2 %><br/>
-                <%= text_field_tag :date_notified_2 %>
+                <%= f.label :manager_last_name_2 %><br/>
+                <%= f.text_field :manager_last_name_2 %>
               </td>
               <td>
-                <%= label_tag :action_2 %><br/>
-                <%= text_area_tag :action_2 %>
+                <%= f.label :manager_title_name_2 %><br/>
+                <%= f.text_field :manager_title_name_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :manager_phone_2 %><br/>
+                <%= f.phone_field :manager_phone_2 %>
+              </td>
+              <td>
+                <%= f.label :date_notified_2 %><br/>
+                <%= f.text_field :date_notified_2 %>
+              </td>
+              <td>
+                <%= f.label :action_2 %><br/>
+                <%= f.text_area :action_2 %>
               </td>
             </tr>
               <tr>
               <td>
-                <%= label_tag :manager_first_name_3 %><br/>
-                <%= text_field_tag :manager_first_name_3 %>
+                <%= f.label :manager_first_name_3 %><br/>
+                <%= f.text_field :manager_first_name_3 %>
               </td>
               <td>
-                <%= label_tag :manager_last_name_3 %><br/>
-                <%= text_field_tag :manager_last_name_3 %>
+                <%= f.label :manager_last_name_3 %><br/>
+                <%= f.text_field :manager_last_name_3 %>
               </td>
               <td>
-                <%= label_tag :manager_title_name_3 %><br/>
-                <%= text_field_tag :manager_title_name_3 %>
+                <%= f.label :manager_title_name_3 %><br/>
+                <%= f.text_field :manager_title_name_3 %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :manager_phone_3 %><br/>
-                <%= phone_field_tag :manager_phone_3 %>
+                <%= f.label :manager_phone_3 %><br/>
+                <%= f.phone_field :manager_phone_3 %>
               </td>
               <td>
-                <%= label_tag :date_notified_3 %><br/>
-                <%= text_field_tag :date_notified_3 %>
+                <%= f.label :date_notified_3 %><br/>
+                <%= f.text_field :date_notified_3 %>
               </td>
               <td>
-                <%= label_tag :action_3 %><br/>
-                <%= text_area_tag :action_3 %>
+                <%= f.label :action_3 %><br/>
+                <%= f.text_area :action_3 %>
               </td>
             </tr>
           </table>
@@ -383,74 +384,74 @@
           <table class='table'>
             <tr>
               <td>
-                <%= label_tag :involved_first_name_1 %><br/>
-                <%= text_field_tag :involved_first_name_1 %>
+                <%= f.label :involved_first_name_1 %><br/>
+                <%= f.text_field :involved_first_name_1 %>
               </td>
               <td>
-                <%= label_tag :involved_last_name_1 %><br/>
-                <%= text_field_tag :involved_last_name_1 %>
+                <%= f.label :involved_last_name_1 %><br/>
+                <%= f.text_field :involved_last_name_1 %>
               </td>
               <td>
-                <%= label_tag :involved_title_name_1 %><br/>
-                <%= text_field_tag :involved_title_name_1 %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <%= label_tag :involved_description_1 %> <small class"quiet">(if unknown)</small><br/>
-                <%= text_area_tag :involved_description_1 %>
-              </td>
-              <td>
-                <%= label_tag :involved_role_1 %><br/>
-                <%= select_tag :involved_role_1 %>
+                <%= f.label :involved_title_name_1 %><br/>
+                <%= f.text_field :involved_title_name_1 %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :involved_first_name_2 %><br/>
-                <%= text_field_tag :involved_first_name_2 %>
+                <%= f.label :involved_description_1 %> <small class"quiet">(if unknown)</small><br/>
+                <%= f.text_area :involved_description_1 %>
               </td>
               <td>
-                <%= label_tag :involved_last_name_2 %><br/>
-                <%= text_field_tag :involved_last_name_2 %>
-              </td>
-              <td>
-                <%= label_tag :involved_title_name_2 %><br/>
-                <%= text_field_tag :involved_title_name_2 %>
+                <%= f.label :involved_role_1 %><br/>
+                <%= f.select "involved_role_1", "<option>Alleged Victim</option><option>Co-worker</option><option>Other</option><option>Witness</option>".html_safe, :include_blank => true %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :involved_description_2 %> <small class"quiet">(if unknown)</small><br/>
-                <%= text_area_tag :involved_description_2 %>
+                <%= f.label :involved_first_name_2 %><br/>
+                <%= f.text_field :involved_first_name_2 %>
               </td>
               <td>
-                <%= label_tag :involved_role_2 %><br/>
-                <%= select_tag :involved_role_2 %>
+                <%= f.label :involved_last_name_2 %><br/>
+                <%= f.text_field :involved_last_name_2 %>
+              </td>
+              <td>
+                <%= f.label :involved_title_name_2 %><br/>
+                <%= f.text_field :involved_title_name_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :involved_description_2 %> <small class"quiet">(if unknown)</small><br/>
+                <%= f.text_area :involved_description_2 %>
+              </td>
+              <td>
+                <%= f.label :involved_role_2 %><br/>
+                <%= f.select "involved_role_2", "<option>Alleged Victim</option><option>Co-worker</option><option>Other</option><option>Witness</option>".html_safe, :include_blank => true %>
               </td>
             </tr>
               <tr>
               <td>
-                <%= label_tag :involved_first_name_3 %><br/>
-                <%= text_field_tag :involved_first_name_3 %>
+                <%= f.label :involved_first_name_3 %><br/>
+                <%= f.text_field :involved_first_name_3 %>
               </td>
               <td>
-                <%= label_tag :involved_last_name_3 %><br/>
-                <%= text_field_tag :involved_last_name_3 %>
+                <%= f.label :involved_last_name_3 %><br/>
+                <%= f.text_field :involved_last_name_3 %>
               </td>
               <td>
-                <%= label_tag :involved_title_name_3 %><br/>
-                <%= text_field_tag :involved_title_name_3 %>
+                <%= f.label :involved_title_name_3 %><br/>
+                <%= f.text_field :involved_title_name_3 %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :involved_description_3 %> <small class"quiet">(if unknown)</small><br/>
-                <%= text_area_tag :involved_description_3 %>
+                <%= f.label :involved_description_3 %> <small class"quiet">(if unknown)</small><br/>
+                <%= f.text_area :involved_description_3 %>
               </td>
               <td>
-                <%= label_tag :involved_role_3 %><br/>
-                <%= select_tag :involved_role_3 %>
+                <%= f.label :involved_role_3 %><br/>
+                <%= f.select "involved_role_3", "<option>Alleged Victim</option><option>Co-worker</option><option>Other</option><option>Witness</option>".html_safe, :include_blank => true %>
               </td>
             </tr>
           </table>
@@ -472,30 +473,30 @@
           <table class='table'>
             <tr>
               <td>
-                <%= label_tag :when_incident_occurred %><br/>
-                <%= text_field_tag :when_incident_occurred %>
+                <%= f.label :when_incident_occurred %><br/>
+                <%= f.text_field :when_incident_occurred %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :incident_description %><br/>
-                <%= text_area_tag :incident_description %>
+                <%= f.label :incident_description %><br/>
+                <%= f.text_area :incident_description %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :where_incident_occurred %><br/>
-                <%= text_field_tag :where_incident_occurred %>
+                <%= f.label :where_incident_occurred %><br/>
+                <%= f.text_field :where_incident_occurred %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :how_do_you_know_of_the_incident %><br/>
-                <%= select_tag "when_incident_occurred", "<option>Heard from Others</option><option>Involved</option><option>Overheard</option><option>Victim</option><option>Witnessed</option><option>Would Not State</option><option>Other</option><option>Unknown</option>".html_safe, :include_blank => true %>
+                <%= f.label :how_do_you_know_of_the_incident %><br/>
+                <%= f.select "how_do_you_know", "<option>Heard from Others</option><option>Involved</option><option>Overheard</option><option>Victim</option><option>Witnessed</option><option>Would Not State</option><option>Other</option><option>Unknown</option>".html_safe, :include_blank => true %>
               </td>
               <td>
-                <%= label_tag :supporting_documentation %></br>
-                <%= text_field_tag :supporting_documentation %>
+                <%= f.label :supporting_documentation %></br>
+                <%= f.text_field :supporting_documentation %>
               </td>
             </tr>
           </table>
@@ -519,24 +520,24 @@
           <table class='table'>
             <tr>
               <td>
-                <%= label_tag :code %>
-                <%= select_tag "code", "<option>Conflict of Interest</option><option>Customer Relations</option><option>Discrimination</option><option>Employee Relations</option><option>Falsification of Company Records</option><option>Fraud</option><option>Fraudulent Insurance Claims</option><option>Kickbacks</option><option>Policy Issues</option><option>Product Quality Concern</option><option>Release of Proprietary Information</option><option>Safety and Sanitation Issues</option><option>Sexual Harrasment</option><option>Substance Abuse</option><option>Theft of Cash</option><option>Theft of Goods and Services</option><option>Theft of Time</option><option>Unauthorized Discounts</option><option>Wage/Hour Issues</option><option>Workplace Violence</option>".html_safe, :include_blank => true %>
+                <%= f.label :code %>
+                <%= f.select "code", "<option>Conflict of Interest</option><option>Customer Relations</option><option>Discrimination</option><option>Employee Relations</option><option>Falsification of Company Records</option><option>Fraud</option><option>Fraudulent Insurance Claims</option><option>Kickbacks</option><option>Policy Issues</option><option>Product Quality Concern</option><option>Release of Proprietary Information</option><option>Safety and Sanitation Issues</option><option>Sexual Harrasment</option><option>Substance Abuse</option><option>Theft of Cash</option><option>Theft of Goods and Services</option><option>Theft of Time</option><option>Unauthorized Discounts</option><option>Wage/Hour Issues</option><option>Workplace Violence</option>".html_safe, :include_blank => true %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :are_there_plans_for_this_to_occur_within_the_next_24_hours_? %><br/>
-                <%= label_tag :yes %> <%= check_box_tag :yes %> <%= label_tag :no %> <%= check_box_tag :no %>
+                <%= f.label :are_there_plans_for_this_to_occur_within_the_next_24_hours_? %><br/>
+                <%= f.label :yes %> <%= check_box_tag :yes %> <%= f.label :no %> <%= check_box_tag :no %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= label_tag :where %>
-                <%= text_field_tag :where %>
+                <%= f.label :where %>
+                <%= f.text_field :where %>
               </td>
               <td>
-                <%= label_tag :when %>
-                <%= text_field_tag :when %>
+                <%= f.label :when %>
+                <%= f.text_field :when %>
               </td>
             </tr>
           </table>
@@ -544,5 +545,6 @@
     </div>
   </div><br/>
 </div>
+<%= f.submit "Submit", class: 'btn btn-warning pull-right' %>
 <% end %>
-<%= submit_tag "Submit", class: 'btn btn-warning pull-right' %>
+<% end %>
