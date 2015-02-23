@@ -1,0 +1,550 @@
+<%= render 'shared/form_heading', title: 'Compliance Downtime Form' %>
+
+
+<div class ="dt_forms">
+<%= form_for (@dt_cr) do |f| %>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-warning">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h3 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Client Information <span class="icon-chevron-down"></span>
+        </a>
+      </h3>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body container-fluid">
+          <table class='table'>
+            <tr>
+              <td>
+                <%= f.label :vdn, 'VDN' %><br/>
+                <%= f.text_field :vdn %>
+              </td>
+              <td>
+                <%= f.label :interviewer %><br/>
+                <%= current_user.username %>
+              </td>
+              <td>
+                <%= f.label :z_number %><br/>
+                <%= z_number(@dt_cr.id) %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :location_or_unit_number %><br/>
+                <%= f.text_field :location %>
+              </td>
+              <td>
+                <%= f.label :address_1 %><br/>
+                <%= f.text_field :address_1 %>
+              </td>
+            </tr>
+              <td>
+                <%= f.label :department %><br/>
+                <%= f.text_field :department %>
+              </td>
+              <td>
+                <%= f.label :address_2 %><br/>
+                <%= f.text_field :address_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <%= f.label :city %><br/>
+                <%= f.text_field :city %>
+              </td>
+              <td>
+                <%= f.label :state %><br/>
+                <%= f.text_field :state %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <%= f.label :zip_code %><br/>
+                <%= f.text_field :zip_code %>
+              </td>
+              <td>
+                <%= f.label :country %><br/>
+                <%= f.text_field :country %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <%= f.label :phone %><br/>
+                <%= f.phone_field :phone %>
+              </td>
+              <td>
+                <%= f.label :fax %><br/>
+                <%= f.phone_field :fax %>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<%= form_for (@dt_cr) do |f| %>
+  <div class="panel panel-warning">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h3 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Caller Information
+        <i class='icon-chevron-down'></i>
+        </a>
+      </h3>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body container-fluid">
+          <table class='table'>
+            <tr>
+              <td>
+                <%= f.label :name_declined, 'Name Declined' %><br/>
+                <%= f.check_box :declined %>
+              </td>
+              <td>
+                <%= f.label :unit %><br/>
+                <%= f.text_field :unit %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :first_name%><br/>
+                <%= f.text_field :caller_first_name%>
+              </td>
+              <td>
+                <%= f.label :name %><br/>
+                <%= f.text_field :name %>
+              </td>
+            </tr>
+              <td>
+                <%= f.label :last_name %><br/>
+                <%= f.text_field :caller_last_name %>
+              </td>
+              <td>
+                <%= f.label :address_1 %><br/>
+                <%= f.text_field :address_1_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :caller_type %><br/>
+                <%= f.select "caller_type", "<option>Customer</option><option>Employee</option><option>Former Employee</option><option>Other</option><option>Unknown</option>".html_safe, :include_blank => true %>
+              </td>
+              <td>
+                <%= f.label :address_2 %><br/>
+                <%= f.text_field :address_2_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :title %><br/>
+                <%= f.text_field :caller_title %>
+              </td>
+              <td>
+                <%= f.label :city %><br/>
+                <%= f.text_field :city_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :when_to_call %><br/>
+                <%= f.text_field :when_to_call %>
+              </td>
+              <td>
+                <%= f.label :state %><br/>
+                <%= f.text_field :state_2 %>
+              </td>
+              <td>
+                <%= f.label :zip_code %><br/>
+                <%= f.text_field :zip_code_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :phone %><br/>
+                <%= f.phone_field :caller_phone %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :ext %><br/>
+                <%= f.phone_field :caller_ext %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :email %><br/>
+                <%= f.email_field :caller_email %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :how_did_you_learn_about_the_hotline %><br/>
+                <%= f.select "how_did_you_learn", "<option>Employee</option><option>Handbook</option><option>HR</option><option>Intranet</option><option>Manager</option><option>Poster</option><option>Sign</option><option>Video</option><option>Wallet Card</option><option>Other</option><option>Unknown</option>".html_safe, :include_blank => true %>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-warning">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h3 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Responsible Information
+        <i class='icon-chevron-down'></i>
+        </a>
+      </h3>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body container-fluid">
+          <table class='table'>
+            <tr>
+              <td>
+                <%= f.label :responsible_first_name_1 %><br/>
+                <%= f.text_field :responsible_first_name_1 %>
+              </td>
+              <td>
+                <%= f.label :responsible_last_name_1 %><br/>
+                <%= f.text_field :responsible_last_name_1 %>
+              </td>
+              <td>
+                <%= f.label :responsible_title_name_1 %><br/>
+                <%= f.text_field :responsible_title_name_1 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :responsible_description_1 %> <small class"quiet">(if unknown)</small><br/>
+                <%= f.text_area :responsible_description_1 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :responsible_first_name_2 %><br/>
+                <%= f.text_field :responsible_first_name_2 %>
+              </td>
+              <td>
+                <%= f.label :responsible_last_name_2 %><br/>
+                <%= f.text_field :responsible_last_name_2 %>
+              </td>
+              <td>
+                <%= f.label :responsible_title_name_2 %><br/>
+                <%= f.text_field :responsible_title_name_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :responsible_description_2 %>  <small class"quiet">(if unknown)</small><br/>
+                <%= f.text_area :responsible_description_2 %>
+              </td>
+            </tr>
+              <tr>
+              <td>
+                <%= f.label :responsible_first_name_3 %><br/>
+                <%= f.text_field :responsible_first_name_3 %>
+              </td>
+              <td>
+                <%= f.label :responsible_last_name_3 %><br/>
+                <%= f.text_field :responsible_last_name_3 %>
+              </td>
+              <td>
+                <%= f.label :responsible_title_name_3 %><br/>
+                <%= f.text_field :responsible_title_name_3 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :responsible_description_3 %> <small class"quiet">(if unknown)</small><br/>
+                <%= f.text_area :responsible_description_3 %>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+
+<div class="panel panel-warning">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h3 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        Management Information
+        <i class='icon-chevron-down'></i>
+        </a>
+      </h3>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body container-fluid">
+          <table class='table'>
+            <tr>
+              <td>
+                <%= f.label :manager_first_name_1 %><br/>
+                <%= f.text_field :manager_first_name_1 %>
+              </td>
+              <td>
+                <%= f.label :manager_last_name_1 %><br/>
+                <%= f.text_field :manager_last_name_1 %>
+              </td>
+              <td>
+                <%= f.label :manager_title_name_1 %><br/>
+                <%= f.text_field :manager_title_name_1 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :manager_phone_1 %><br/>
+                <%= f.phone_field :manager_phone_1 %>
+              </td>
+              <td>
+                <%= f.label :date_notified_1 %><br/>
+                <%= f.text_field :date_notified_1 %>
+              </td>
+              <td>
+                <%= f.label :action_1 %><br/>
+                <%= f.text_area :action_1 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :manager_first_name_2 %><br/>
+                <%= f.text_field :manager_first_name_2 %>
+              </td>
+              <td>
+                <%= f.label :manager_last_name_2 %><br/>
+                <%= f.text_field :manager_last_name_2 %>
+              </td>
+              <td>
+                <%= f.label :manager_title_name_2 %><br/>
+                <%= f.text_field :manager_title_name_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :manager_phone_2 %><br/>
+                <%= f.phone_field :manager_phone_2 %>
+              </td>
+              <td>
+                <%= f.label :date_notified_2 %><br/>
+                <%= f.text_field :date_notified_2 %>
+              </td>
+              <td>
+                <%= f.label :action_2 %><br/>
+                <%= f.text_area :action_2 %>
+              </td>
+            </tr>
+              <tr>
+              <td>
+                <%= f.label :manager_first_name_3 %><br/>
+                <%= f.text_field :manager_first_name_3 %>
+              </td>
+              <td>
+                <%= f.label :manager_last_name_3 %><br/>
+                <%= f.text_field :manager_last_name_3 %>
+              </td>
+              <td>
+                <%= f.label :manager_title_name_3 %><br/>
+                <%= f.text_field :manager_title_name_3 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :manager_phone_3 %><br/>
+                <%= f.phone_field :manager_phone_3 %>
+              </td>
+              <td>
+                <%= f.label :date_notified_3 %><br/>
+                <%= f.text_field :date_notified_3 %>
+              </td>
+              <td>
+                <%= f.label :action_3 %><br/>
+                <%= f.text_area :action_3 %>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-warning">
+    <div class="panel-heading" role="tab" id="headingFive">
+      <h3 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        Aware/Involved Information
+        <i class='icon-chevron-down'></i>
+        </a>
+      </h3>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="panel-body container-fluid">
+          <table class='table'>
+            <tr>
+              <td>
+                <%= f.label :involved_first_name_1 %><br/>
+                <%= f.text_field :involved_first_name_1 %>
+              </td>
+              <td>
+                <%= f.label :involved_last_name_1 %><br/>
+                <%= f.text_field :involved_last_name_1 %>
+              </td>
+              <td>
+                <%= f.label :involved_title_name_1 %><br/>
+                <%= f.text_field :involved_title_name_1 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :involved_description_1 %> <small class"quiet">(if unknown)</small><br/>
+                <%= f.text_area :involved_description_1 %>
+              </td>
+              <td>
+                <%= f.label :involved_role_1 %><br/>
+                <%= f.select "involved_role_1", "<option>Alleged Victim</option><option>Co-worker</option><option>Other</option><option>Witness</option>".html_safe, :include_blank => true %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :involved_first_name_2 %><br/>
+                <%= f.text_field :involved_first_name_2 %>
+              </td>
+              <td>
+                <%= f.label :involved_last_name_2 %><br/>
+                <%= f.text_field :involved_last_name_2 %>
+              </td>
+              <td>
+                <%= f.label :involved_title_name_2 %><br/>
+                <%= f.text_field :involved_title_name_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :involved_description_2 %> <small class"quiet">(if unknown)</small><br/>
+                <%= f.text_area :involved_description_2 %>
+              </td>
+              <td>
+                <%= f.label :involved_role_2 %><br/>
+                <%= f.select "involved_role_2", "<option>Alleged Victim</option><option>Co-worker</option><option>Other</option><option>Witness</option>".html_safe, :include_blank => true %>
+              </td>
+            </tr>
+              <tr>
+              <td>
+                <%= f.label :involved_first_name_3 %><br/>
+                <%= f.text_field :involved_first_name_3 %>
+              </td>
+              <td>
+                <%= f.label :involved_last_name_3 %><br/>
+                <%= f.text_field :involved_last_name_3 %>
+              </td>
+              <td>
+                <%= f.label :involved_title_name_3 %><br/>
+                <%= f.text_field :involved_title_name_3 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :involved_description_3 %> <small class"quiet">(if unknown)</small><br/>
+                <%= f.text_area :involved_description_3 %>
+              </td>
+              <td>
+                <%= f.label :involved_role_3 %><br/>
+                <%= f.select "involved_role_3", "<option>Alleged Victim</option><option>Co-worker</option><option>Other</option><option>Witness</option>".html_safe, :include_blank => true %>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+<div class="panel panel-warning">
+    <div class="panel-heading" role="tab" id="headingSix">
+      <h3 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        Incident Information
+        <i class='icon-chevron-down'></i>
+        </a>
+      </h3>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+      <div class="panel-body container-fluid">
+          <table class='table'>
+            <tr>
+              <td>
+                <%= f.label :when_incident_occurred %><br/>
+                <%= f.text_field :when_incident_occurred %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :incident_description %><br/>
+                <%= f.text_area :incident_description %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :where_incident_occurred %><br/>
+                <%= f.text_field :where_incident_occurred %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :how_do_you_know_of_the_incident %><br/>
+                <%= f.select "how_do_you_know", "<option>Heard from Others</option><option>Involved</option><option>Overheard</option><option>Victim</option><option>Witnessed</option><option>Would Not State</option><option>Other</option><option>Unknown</option>".html_safe, :include_blank => true %>
+              </td>
+              <td>
+                <%= f.label :supporting_documentation %></br>
+                <%= f.text_field :supporting_documentation %>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+
+<div class="panel panel-warning">
+    <div class="panel-heading" role="tab" id="headingSeven">
+      <h3 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+        Coding Information
+        <i class='icon-chevron-down'></i>
+        </a>
+      </h3>
+    </div>
+    <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+      <div class="panel-body container-fluid">
+        <%= form_tag '/dt_crs' do %>
+          <table class='table'>
+            <tr>
+              <td>
+                <%= f.label :code %>
+                <%= f.select "code", "<option>Conflict of Interest</option><option>Customer Relations</option><option>Discrimination</option><option>Employee Relations</option><option>Falsification of Company Records</option><option>Fraud</option><option>Fraudulent Insurance Claims</option><option>Kickbacks</option><option>Policy Issues</option><option>Product Quality Concern</option><option>Release of Proprietary Information</option><option>Safety and Sanitation Issues</option><option>Sexual Harrasment</option><option>Substance Abuse</option><option>Theft of Cash</option><option>Theft of Goods and Services</option><option>Theft of Time</option><option>Unauthorized Discounts</option><option>Wage/Hour Issues</option><option>Workplace Violence</option>".html_safe, :include_blank => true %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :are_there_plans_for_this_to_occur_within_the_next_24_hours_? %><br/>
+                <%= f.label :yes %> <%= check_box_tag :yes %> <%= f.label :no %> <%= check_box_tag :no %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= f.label :where %>
+                <%= f.text_field :where %>
+              </td>
+              <td>
+                <%= f.label :when %>
+                <%= f.text_field :when %>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div><br/>
+</div>
+<%= f.submit "Submit", class: 'btn btn-warning pull-right' %>
+<% end %>
+<% end %>
