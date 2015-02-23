@@ -1,4 +1,494 @@
-Saved downtime form will appear here.
+<%= render 'shared/form_heading', title: 'Compliance Downtime Form' %>
+
+<%= render 'shared/panel_group' %>
+
 <p>
-<%= link_to "Edit form", edit_dt_cr_path(@dt_cr) %></br>
-<%= z_number(@dt_cr.id) %> 
+<%= link_to "Edit form - #{z_number(@dt_cr.id)}", edit_dt_cr_path(@dt_cr) %>
+
+<p>
+  <%= form_for (@dt_cr) do |f| %>
+<%= render 'shared/panel_heading', heading_number: 'headingOne', collapse_number: 'collapseOne', panel_heading_title: 'Client Information' %>
+
+      <div class="panel-body container-fluid">
+          <table class='table'>
+            <tr>
+              <td>
+                <strong>VDN</strong><br/>
+                <%= @dt_cr.vdn %>
+              </td>
+              <td>
+                <strong>Interviewer</strong><br/>
+                <%= current_user.username %>
+              </td>
+              <td>
+                <strong>Z Number</strong><br/>
+                <%= z_number(@dt_cr.id) %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Location or Unit Number</strong><br/>
+                <%= @dt_cr.location %>
+              </td>
+              <td>
+                <strong>Address 1</strong><br/>
+                <%=  @dt_cr.address_1 %>
+              </td>
+            </tr>
+              <td>
+                <strong>Department</strong><br/>
+                <%= @dt_cr.department %>
+              </td>
+              <td>
+                <strong>Address 2</strong><br/>
+                <%= @dt_cr.address_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+               <strong>City</strong><br/>
+                <%= @dt_cr.city %>
+              </td>
+              <td>
+                <strong>State</strong><br/>
+                <%= @dt_cr.state %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <strong>Zipcode</strong><br/>
+                <%= @dt_cr.zip_code %>
+              </td>
+              <td>
+                <strong>Country</strong><br/>
+                <%= @dt_cr.country %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <strong>Phone</strong><br/>
+                <%= @dt_cr.phone %>
+              </td>
+              <td>
+                <strong>Fax</strong><br/>
+                <%= @dt_cr.fax %>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'shared/panel_heading', heading_number: 'headingTwo', collapse_number: 'collapseTwo', panel_heading_title: 'Caller Information' %>
+
+      <div class="panel-body container-fluid">
+          <table class='table'>
+            <tr>
+              <td>
+                <strong>Name Declined</strong><br/>
+                <%= f.check_box :declined %>
+              </td>
+              <td>
+                <strong>Unit</strong><br/>
+                <%= @dt_cr.unit %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>First Name</strong><br/>
+                <%= @dt_cr.caller_first_name %>
+              </td>
+              <td>
+                <strong>Name</strong><br/>
+                <%= @dt_cr.name %>
+              </td>
+            </tr>
+              <td>
+                <strong>Last Name</strong><br/>
+                <%= @dt_cr.caller_last_name %>
+              </td>
+              <td>
+                <strong>Address 1</strong><br/>
+                <%= @dt_cr.address_1_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Caller Type</strong><br/>
+                <%= @dt_cr.caller_type %>
+              </td>
+              <td>
+                <strong>Address 2</strong><br/>
+                <%= @dt_cr.address_2_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Title</strong><br/>
+                <%= @dt_cr.caller_title %>
+              </td>
+              <td>
+                <strong>City</strong><br/>
+                <%= @dt_cr.city_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>When to Call</strong><br/>
+                <%= @dt_cr.when_to_call %>
+              </td>
+              <td>
+                <strong>State</strong><br/>
+                <%= @dt_cr.state_2 %>
+              </td>
+              <td>
+                <strong>Zipcode</strong><br/>
+                <%= @dt_cr.zip_code_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Phone</strong><br/>
+                <%= @dt_cr.caller_phone %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Ext.</strong><br/>
+                <%= @dt_cr.caller_ext %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Email</strong><br/>
+                <%= @dt_cr.caller_email %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>How did you learn about the hotline?</strong><br/>
+                <%= @dt_cr.how_did_you_learn %>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'shared/panel_heading', heading_number: 'headingThree', collapse_number: 'collapseThree', panel_heading_title: 'Responsible Information' %>
+
+      <div class="panel-body container-fluid">
+          <table class='table'>
+            <tr>
+              <td>
+                <strong>Responsible First Name 1</strong><br/>
+                <%= @dt_cr.responsible_first_name_1 %>
+              </td>
+              <td>
+                <strong>Responsible Last Name 1</strong><br/>
+                <%= @dt_cr.responsible_last_name_1 %>
+              </td>
+              <td>
+                <strong>Responsible Title Name 1</strong><br/>
+                <%= @dt_cr.responsible_title_name_1 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Responsible Description 1</strong> <small class"quiet">(if unknown)</small><br/>
+                <%= @dt_cr.responsible_description_1 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Responsible First Name 2</strong><br/>
+                <%= @dt_cr.responsible_first_name_2 %>
+              </td>
+              <td>
+                <strong>Responsible Last Name 2</strong><br/>
+                <%= @dt_cr.responsible_last_name_2 %>
+              </td>
+              <td>
+                <strong>Responsible Title Name 2</strong><br/>
+                <%= @dt_cr.responsible_title_name_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Responsible Description 2</strong> <small class"quiet">(if unknown)</small><br/>
+                <%= @dt_cr.responsible_description_2 %>
+              </td>
+            </tr>
+              <tr>
+              <td>
+                <strong>Responsible First Name 3</strong><br/>
+                <%= @dt_cr.responsible_first_name_3 %>
+              </td>
+              <td>
+                <strong>Responsible Last Name 3</strong><br/>
+                <%= @dt_cr.responsible_last_name_3 %>
+              </td>
+              <td>
+                <strong>Responsible Title Name 3</strong><br/>
+                <%= @dt_cr.responsible_title_name_3 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Responsible Description 3</strong> <small class"quiet">(if unknown)</small><br/>
+                <%= @dt_cr.responsible_description_3 %>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+
+<%= render 'shared/panel_heading', heading_number: 'headingFour', collapse_number: 'collapseFour', panel_heading_title: 'Management Information' %>
+
+      <div class="panel-body container-fluid">
+          <table class='table'>
+            <tr>
+              <td>
+                <strong>Manager First Name 1</strong><br/>
+                <%= @dt_cr.manager_first_name_1 %>
+              </td>
+              <td>
+                <strong>Manager Last Name 1</strong><br/>
+                <%= @dt_cr.manager_last_name_1 %>
+              </td>
+              <td>
+                <strong>Manager Title Name 1</strong><br/>
+                <%= @dt_cr.manager_title_name_1 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Manager Phone 1</strong><br/>
+                <%= @dt_cr.manager_phone_1 %>
+              </td>
+              <td>
+                <strong>Date Notified 1</strong><br/>
+                <%= @dt_cr.date_notified_1 %>
+              </td>
+              <td>
+                <strong>Action 1</strong><br/>
+                <%= @dt_cr.action_1 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Manager First Name 2</strong><br/>
+                <%= @dt_cr.manager_first_name_2 %>
+              </td>
+              <td>
+                <strong>Manager Last Name 2</strong><br/>
+                <%= @dt_cr.manager_last_name_2 %>
+              </td>
+              <td>
+                <strong>Manager Title Name 2</strong><br/>
+                <%= @dt_cr.manager_title_name_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Manager Phone 2</strong><br/>
+                <%= @dt_cr.manager_phone_2 %>
+              </td>
+              <td>
+                <strong>Date Notified 2</strong><br/>
+                <%= @dt_cr.date_notified_2 %>
+              </td>
+              <td>
+                <strong>Action 2</strong><br/>
+                <%= @dt_cr.action_2 %>
+              </td>
+            </tr>
+              <tr>
+              <td>
+                <strong>Manager First Name 3</strong><br/>
+                <%= @dt_cr.manager_first_name_3 %>
+              </td>
+              <td>
+                <strong>Manager Last Name 3</strong><br/>
+                <%= @dt_cr.manager_last_name_3 %>
+              </td>
+              <td>
+                <strong>Manager Title Name 3</strong><br/>
+                <%= @dt_cr.manager_title_name_3 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Manager Phone 3</strong><br/>
+                <%= @dt_cr.manager_phone_3 %>
+              </td>
+              <td>
+                <strong>Date Notified 3</strong><br/>
+                <%= @dt_cr.date_notified_3 %>
+              </td>
+              <td>
+                <strong>Action 3</strong><br/>
+                <%= @dt_cr.action_3 %>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'shared/panel_heading', heading_number: 'headingFive', collapse_number: 'collapseFive', panel_heading_title: 'Aware/Involved Information' %>
+
+      <div class="panel-body container-fluid">
+          <table class='table'>
+            <tr>
+              <td>
+                <strong>Involved First Name 1</strong><br/>
+                <%= @dt_cr.involved_first_name_1 %>
+              </td>
+              <td>
+                <strong>Involved Last Name 1</strong><br/>
+                <%= @dt_cr.involved_last_name_1 %>
+              </td>
+              <td>
+                <strong>Involved Title Name 1</strong><br/>
+                <%= @dt_cr.involved_title_name_1 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Involved Description 1</strong><small class"quiet">(if unknown)</small><br/>
+                <%= @dt_cr.involved_description_1 %>
+              </td>
+              <td>
+                <strong>Involved Role 1</strong><br/>
+                <%= @dt_cr.involved_role_1 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Involved First Name 2</strong><br/>
+                <%= @dt_cr.involved_first_name_2 %>
+              </td>
+              <td>
+                <strong>Involved Last Name 2</strong><br/>
+                <%= @dt_cr.involved_last_name_2 %>
+              </td>
+              <td>
+                <strong>Involved Title Name 2</strong><br/>
+                <%= @dt_cr.involved_title_name_2 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Involved Description 2</strong><small class"quiet">(if unknown)</small><br/>
+                <%= @dt_cr.involved_description_2 %>
+              </td>
+              <td>
+                <strong>Involved Role 2</strong><br/>
+                <%= @dt_cr.involved_role_2 %>
+              </td>
+            </tr>
+              <tr>
+              <td>
+                <strong>Involved First Name 3</strong><br/>
+                <%= @dt_cr.involved_first_name_3 %>
+              </td>
+              <td>
+                <strong>Involved Last Name 3</strong><br/>
+                <%= @dt_cr.involved_last_name_3 %>
+              </td>
+              <td>
+                <strong>Involved Title Name 3</strong><br/>
+                <%= @dt_cr.involved_title_name_3 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Involved Description 3</strong><small class"quiet">(if unknown)</small><br/>
+                <%= @dt_cr.involved_description_3 %>
+              </td>
+              <td>
+                <strong>Involved Role 3</strong><br/>
+                <%= @dt_cr.involved_role_3 %>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+<%= render 'shared/panel_heading', heading_number: 'headingSix', collapse_number: 'collapseSix', panel_heading_title: 'Incident Information' %>
+
+      <div class="panel-body container-fluid">
+          <table class='table'>
+            <tr>
+              <td>
+                <strong>When incident occurred</strong><br/>
+                <%= @dt_cr.when_incident_occurred %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Incident Description</strong><br/>
+                <%= @dt_cr.incident_description %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Where incident occurred</strong><br/>
+                <%= @dt_cr.where_incident_occurred %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>How do you know of the incident?</strong><br/>
+                <%= @dt_cr.how_do_you_know %>
+              </td>
+              <td>
+                <strong>Support Documentation</strong><br/>
+                <%= @dt_cr.supporting_documentation %>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div>
+
+<%= render 'shared/panel_heading', heading_number: 'headingSeven', collapse_number: 'collapseSeven', panel_heading_title: 'Coding Information' %>
+
+      <div class="panel-body container-fluid">
+          <table class='table'>
+            <tr>
+              <td>
+                <strong>Code</strong>
+                <%= @dt_cr.code %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Are there plans for this to occur within the next 24 hours?</strong><br/>
+                <%= f.label :yes %> <%= f.check_box :plan_24_yes %> <%= f.label :no %> <%= f.check_box :plan_24_no %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Where: </strong>
+                <%= @dt_cr.where %>
+              </td>
+              <td>
+                <strong>When: </strong>
+                <%= @dt_cr.when %>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </div><br/>
+</div>
+<%= f.submit "Email", class: 'btn btn-warning pull-right' %>
+<% end %>
