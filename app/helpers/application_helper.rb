@@ -1,8 +1,10 @@
 module ApplicationHelper
   def z_number(dt_cr_id)
-    z_number = "Z#{dt_cr_id.to_s}"
-    if dt_cr_id.to_s.size < 6
-      z_number << "0" until z_number.size == 7
+    form_number = dt_cr_id.to_s
+    z_number = "Z#{form_number}"
+    if form_number.size < 6
+      form_number.prepend "0" until form_number.size == 6
+      z_number = "Z#{form_number}"
     else
       z_number
     end
