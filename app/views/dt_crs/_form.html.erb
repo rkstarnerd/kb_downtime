@@ -471,17 +471,17 @@
             <tr>
               <td>
                 <%= f.label :are_there_plans_for_this_to_occur_within_the_next_24_hours_? %><br/>
-                <%= f.label :yes %> <%= check_box_tag :yes %> <%= f.label :no %> <%= check_box_tag :no %>
+                <%= f.label :yes %> <%= f.check_box :plan_24_yes %> <%= f.label :no %> <%= f.check_box :plan_24_no %>
               </td>
             </tr>
             <tr>
               <td>
                 <%= f.label :where %>
-                <%= f.text_field :where %>
+                <%= f.text_field :where, disabled: @dt_cr.plan_24_no %>
               </td>
               <td>
                 <%= f.label :when %>
-                <%= f.text_field :when %>
+                <%= f.text_field :when, disabled: @dt_cr.plan_24_no %>
               </td>
             </tr>
           </table>
