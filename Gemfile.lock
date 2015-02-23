@@ -33,6 +33,7 @@ GEM
     bonsai-elasticsearch-rails (0.0.4)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
+    bootstrap_form (2.3.0)
     builder (3.2.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -163,6 +164,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bonsai-elasticsearch-rails
   bootstrap-sass
+  bootstrap_form
   coffee-rails (~> 4.0.0)
   elasticsearch-model
   elasticsearch-rails

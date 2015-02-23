@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer',  platforms: :ruby
 
 gem 'bootstrap-sass'
+gem 'bootstrap_form'
+
 # gem 'autoprefixer-rails'
 
 # Use jquery as the JavaScript library
@@ -32,6 +34,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'bonsai-elasticsearch-rails'
+
+
 
 # Use unicorn as the app server
 # gem 'unicorn'
