@@ -2,8 +2,9 @@
 
 
 <div class ="dt_forms">
-<%= form_for (@dt_cr) do |f| %>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+  <%= form_for (@dt_cr) do |f| %>
   <div class="panel panel-warning">
     <div class="panel-heading" role="tab" id="headingOne">
       <h3 class="panel-title">
@@ -26,7 +27,7 @@
               </td>
               <td>
                 <%= f.label :z_number %><br/>
-                <%= z_number(@dt_cr.id) %>
+                <%= f.text_field :z_number, value: z_number(@dt_cr.id), disabled: true %>
               </td>
             </tr>
             <tr>
@@ -82,11 +83,9 @@
               </td>
             </tr>
           </table>
-        <% end %>
       </div>
     </div>
   </div>
-<%= form_for (@dt_cr) do |f| %>
   <div class="panel panel-warning">
     <div class="panel-heading" role="tab" id="headingTwo">
       <h3 class="panel-title">
@@ -131,7 +130,7 @@
             <tr>
               <td>
                 <%= f.label :caller_type %><br/>
-                <%= f.select "caller_type", "<option>Customer</option><option>Employee</option><option>Former Employee</option><option>Other</option><option>Unknown</option>".html_safe, :include_blank => true %>
+                <%= f.select :caller_type, "<option>Customer</option><option>Employee</option><option>Former Employee</option><option>Other</option><option>Unknown</option>".html_safe, include_blank: true, :selected => @dt_cr.caller_type %>
               </td>
               <td>
                 <%= f.label :address_2 %><br/>
@@ -516,12 +515,11 @@
     </div>
     <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
       <div class="panel-body container-fluid">
-        <%= form_tag '/dt_crs' do %>
           <table class='table'>
             <tr>
               <td>
                 <%= f.label :code %>
-                <%= f.select "code", "<option>Conflict of Interest</option><option>Customer Relations</option><option>Discrimination</option><option>Employee Relations</option><option>Falsification of Company Records</option><option>Fraud</option><option>Fraudulent Insurance Claims</option><option>Kickbacks</option><option>Policy Issues</option><option>Product Quality Concern</option><option>Release of Proprietary Information</option><option>Safety and Sanitation Issues</option><option>Sexual Harrasment</option><option>Substance Abuse</option><option>Theft of Cash</option><option>Theft of Goods and Services</option><option>Theft of Time</option><option>Unauthorized Discounts</option><option>Wage/Hour Issues</option><option>Workplace Violence</option>".html_safe, :include_blank => true %>
+                <%= f.select "code", "<option>Conflict of Interest</option><option>Customer Relations</option><option>Discrimination</option><option>Employee Relations</option><option>Falsification of Company Records</option><option>Fraud</option><option>Fraudulent Insurance Claims</option><option>Kickbacks</option><option>Policy Issues</option><option>Product Quality Concern</option><option>Release of Proprietary Information</option><option>Safety and Sanitation Issues</option><option>Sexual Harrasment</option><option>Substance Abuse</option><option>Theft of Cash</option><option>Theft of Goods and Services</option><option>Theft of Time</option><option>Unauthorized Discounts</option><option>Wage/Hour Issues</option><option>Workplace Violence</option>".html_safe, :include_blank => true, selected: @dt_cr.code %>
               </td>
             </tr>
             <tr>
@@ -546,5 +544,4 @@
   </div><br/>
 </div>
 <%= f.submit "Submit", class: 'btn btn-warning pull-right' %>
-<% end %>
 <% end %>
