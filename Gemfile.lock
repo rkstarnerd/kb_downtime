@@ -33,7 +33,6 @@ GEM
     bonsai-elasticsearch-rails (0.0.4)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
-    bootstrap_form (2.3.0)
     builder (3.2.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -78,7 +77,6 @@ GEM
     minitest (5.5.1)
     multi_json (1.10.1)
     multipart-post (2.0.0)
-    nested_form (0.3.2)
     pg (0.17.1)
     pg (0.17.1-x86-mingw32)
     pry (0.10.1)
@@ -165,13 +163,11 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bonsai-elasticsearch-rails
   bootstrap-sass
-  bootstrap_form
   coffee-rails (~> 4.0.0)
   elasticsearch-model
   elasticsearch-rails
   jbuilder (~> 2.0)
   jquery-rails
-  nested_form
   pg
   pry
   quiet_assets
