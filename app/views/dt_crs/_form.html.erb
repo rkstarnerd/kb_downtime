@@ -98,7 +98,7 @@
             <tr>
               <td>
                 <%= f.label :first_name%><br/>
-                <%= f.text_field :caller_first_name%>
+                <%= f.text_field :caller_first_name, disabled: @dt_cr.declined %>
               </td>
               <td>
                 <%= f.label :name %><br/>
@@ -107,7 +107,7 @@
             </tr>
               <td>
                 <%= f.label :last_name %><br/>
-                <%= f.text_field :caller_last_name %>
+                <%= f.text_field :caller_last_name, disabled: @dt_cr.declined %>
               </td>
               <td>
                 <%= f.label :address_1 %><br/>
@@ -117,7 +117,7 @@
             <tr>
               <td>
                 <%= f.label :caller_type %><br/>
-                <%= f.select :caller_type, "<option>Customer</option><option>Employee</option><option>Former Employee</option><option>Other</option><option>Unknown</option>".html_safe, include_blank: true, :selected => @dt_cr.caller_type %>
+                <%= f.select :caller_type, "<option>Customer</option><option>Employee</option><option>Former Employee</option><option>Other</option><option>Unknown</option>".html_safe, include_blank: true, disabled: @dt_cr.declined %>
               </td>
               <td>
                 <%= f.label :address_2 %><br/>
@@ -127,7 +127,7 @@
             <tr>
               <td>
                 <%= f.label :title %><br/>
-                <%= f.text_field :caller_title %>
+                <%= f.text_field :caller_title, disabled: @dt_cr.declined %>
               </td>
               <td>
                 <%= f.label :city %><br/>
@@ -137,7 +137,7 @@
             <tr>
               <td>
                 <%= f.label :when_to_call %><br/>
-                <%= f.text_field :when_to_call %>
+                <%= f.text_field :when_to_call, disabled: @dt_cr.declined %>
               </td>
               <td>
                 <%= f.label :state %><br/>
@@ -151,19 +151,19 @@
             <tr>
               <td>
                 <%= f.label :phone %><br/>
-                <%= f.phone_field :caller_phone %>
+                <%= f.phone_field :caller_phone, disabled: @dt_cr.declined %>
               </td>
             </tr>
             <tr>
               <td>
                 <%= f.label :ext %><br/>
-                <%= f.phone_field :caller_ext %>
+                <%= f.phone_field :caller_ext, disabled: @dt_cr.declined %>
               </td>
             </tr>
             <tr>
               <td>
                 <%= f.label :email %><br/>
-                <%= f.email_field :caller_email %>
+                <%= f.email_field :caller_email, disabled: @dt_cr.declined %>
               </td>
             </tr>
             <tr>
