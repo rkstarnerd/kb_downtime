@@ -5,15 +5,9 @@
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
   <%= form_for (@dt_cr) do |f| %>
-  <div class="panel panel-warning">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h3 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Client Information <span class="icon-chevron-down"></span>
-        </a>
-      </h3>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+
+  <%= render 'shared/panel_heading', heading_number: 'headingOne', collapse_number: 'collapseOne', panel_heading_title: 'Client Information' %>
+
       <div class="panel-body container-fluid">
           <table class='table'>
             <tr>
@@ -86,16 +80,9 @@
       </div>
     </div>
   </div>
-  <div class="panel panel-warning">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h3 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Caller Information
-        <i class='icon-chevron-down'></i>
-        </a>
-      </h3>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+
+  <%= render 'shared/panel_heading', heading_number: 'headingTwo', collapse_number: 'collapseTwo', panel_heading_title: 'Caller Information' %>
+
       <div class="panel-body container-fluid">
           <table class='table'>
             <tr>
@@ -190,16 +177,8 @@
     </div>
   </div>
 
-  <div class="panel panel-warning">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h3 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Responsible Information
-        <i class='icon-chevron-down'></i>
-        </a>
-      </h3>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+  <%= render 'shared/panel_heading', heading_number: 'headingThree', collapse_number: 'collapseThree', panel_heading_title: 'Responsible Information' %>
+
       <div class="panel-body container-fluid">
           <table class='table'>
             <tr>
@@ -268,16 +247,8 @@
   </div>
 
 
-<div class="panel panel-warning">
-    <div class="panel-heading" role="tab" id="headingFour">
-      <h3 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-        Management Information
-        <i class='icon-chevron-down'></i>
-        </a>
-      </h3>
-    </div>
-    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+<%= render 'shared/panel_heading', heading_number: 'headingFour', collapse_number: 'collapseFour', panel_heading_title: 'Management Information' %>
+
       <div class="panel-body container-fluid">
           <table class='table'>
             <tr>
@@ -369,16 +340,8 @@
     </div>
   </div>
 
-  <div class="panel panel-warning">
-    <div class="panel-heading" role="tab" id="headingFive">
-      <h3 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-        Aware/Involved Information
-        <i class='icon-chevron-down'></i>
-        </a>
-      </h3>
-    </div>
-    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+  <%= render 'shared/panel_heading', heading_number: 'headingFive', collapse_number: 'collapseFive', panel_heading_title: 'Aware/Involved Information' %>
+
       <div class="panel-body container-fluid">
           <table class='table'>
             <tr>
@@ -458,16 +421,8 @@
     </div>
   </div>
 
-<div class="panel panel-warning">
-    <div class="panel-heading" role="tab" id="headingSix">
-      <h3 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-        Incident Information
-        <i class='icon-chevron-down'></i>
-        </a>
-      </h3>
-    </div>
-    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+<%= render 'shared/panel_heading', heading_number: 'headingSix', collapse_number: 'collapseSix', panel_heading_title: 'Incident Information' %>
+
       <div class="panel-body container-fluid">
           <table class='table'>
             <tr>
@@ -503,17 +458,8 @@
     </div>
   </div>
 
+<%= render 'shared/panel_heading', heading_number: 'headingSeven', collapse_number: 'collapseSeven', panel_heading_title: 'Coding Information' %>
 
-<div class="panel panel-warning">
-    <div class="panel-heading" role="tab" id="headingSeven">
-      <h3 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-        Coding Information
-        <i class='icon-chevron-down'></i>
-        </a>
-      </h3>
-    </div>
-    <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
       <div class="panel-body container-fluid">
           <table class='table'>
             <tr>
