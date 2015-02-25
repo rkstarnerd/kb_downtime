@@ -1,5 +1,5 @@
 class DtCrsController < ApplicationController
-  before_action :set_form, only: [:show, :edit, :update]
+  before_action :set_form, only: [:show, :edit, :update, :email_form]
 
   def new
     @dt_cr = DtCr.new
@@ -25,11 +25,19 @@ class DtCrsController < ApplicationController
 
 def update
   if @dt_cr.update(dt_cr_params)
-    flash[:notice] = "The form was updated"
+    flash[:notice] = "The form was updated."
     redirect_to dt_cr_path(@dt_cr)
   else
     render 'edit'
   end
+end
+
+def email_form
+  @user = current_user
+
+  EmailForms.email_form(@dt_cr, @user).deliver
+  flash[:notice] = "The form has been sent."
+  redirect_to dt_cr_path(@dt_cr)
 end
 
   private
