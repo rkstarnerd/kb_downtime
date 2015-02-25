@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get  '/login',     to: 'sessions#new'
   post '/login',     to: 'sessions#create'
   get  'logout',     to: 'sessions#destroy'
-  get  '/email_form',     to: 'dtcrs#email_form', as: :email_form
+  get  '/email_form',     to: 'dt_crs#email_form', as: :email_form
 
   resources :users, except: [:destroy] do
     resources :articles
