@@ -11,7 +11,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    
   end
 
   def new
@@ -19,7 +18,6 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    
   end
 
   def create
@@ -48,7 +46,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to root_path }
       format.js
-    end    
+    end
   end
 
 private
