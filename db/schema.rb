@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223162905) do
+ActiveRecord::Schema.define(version: 20150222235007) do
 
   create_table "articles", force: true do |t|
     t.string   "client_name"
@@ -109,8 +109,6 @@ ActiveRecord::Schema.define(version: 20150223162905) do
     t.string   "code"
     t.string   "where"
     t.string   "when"
-    t.boolean  "plan_24_yes"
-    t.boolean  "plan_24_no"
   end
 
   create_table "users", force: true do |t|
