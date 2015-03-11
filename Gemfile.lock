@@ -175,6 +175,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     slop (3.6.0)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -234,6 +236,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc
   selenium-webdriver (~> 2.43.0)
+  shoulda-matchers (~> 2.8.0)
   sqlite3
   therubyracer
   turbolinks
