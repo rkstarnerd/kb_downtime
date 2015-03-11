@@ -40,12 +40,14 @@
       <%= current_user.username %> <span class= 'caret'></span>
     <% end %>
     <ul class='dropdown-menu'>
-      <li>
-        <%= link_to new_article_path do %>
-          <i class='icon-plus'></i>
-          new article
-        <% end %>
-      </li>
+      <% if logged_in? && current_user.admin? %>
+        <li>
+          <%= link_to new_article_path do %>
+            <i class='icon-plus'></i>
+            new article
+          <% end %>
+        </li>
+      <% end %>
       <li>
         <%= link_to logout_path(current_user) do %>
           <i class='icon-circle-arrow-left'></i>

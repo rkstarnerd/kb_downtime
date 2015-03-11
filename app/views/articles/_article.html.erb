@@ -14,7 +14,7 @@
   <small class='quiet'>Article: <%= @article.id %></small>
 </div>
 
-<% if logged_in? %>
+<% if logged_in? && current_user.admin? %>
   <%= link_to 'Edit this article', edit_article_path(article) %><br/>
   <%= link_to 'Delete this article', article_path(article), confirm: 'Are you sure?', method: :delete %>
 <% end %>
