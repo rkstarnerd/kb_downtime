@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe User do
-  it "is valid with username and password"
-  it "is invalid without a username"
-  it "is invalid without a password"
-  it "is invalid with a duplicate username"
-  it "is invalid with a password with a length of less than 5 characters"
-  it "returns a user's username as a string"
+  it { should have_many(:dt_crs)}
+  it { should have_many(:articles)}
+  it { should validate_presence_of(:username)}
+  it { should validate_presence_of(:password)}
+  it { should validate_uniqueness_of(:username)}
+  it { should validate_length_of(:password)}
 end
