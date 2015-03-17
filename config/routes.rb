@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     resources :articles
   end
 
-  resources :articles
-
+  resources :articles do
+    resources :comments, only: [:create, :show]
+  end
+  
   resources :dt_crs
 end
