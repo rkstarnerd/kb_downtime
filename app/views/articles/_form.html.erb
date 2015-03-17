@@ -13,6 +13,17 @@
       <%= f.label :answer %><br/>
       <%= f.text_area :answer %>
       <br><br/>
+      
+      <% if current_page?(action: 'new') %>
+        <!-- add nothing !-->
+      <% elsif current_page?(action: 'edit') %>
+        <strong>What was changed and why?</strong><br/>
+        <%= form_for [@article, @comment] do |f| %>
+          <%= f.text_area :body %>
+        <br/>
+        <% end %>
+      <% end %>
+      <br/>
       <%= f.submit "Submit", class: 'btn btn-primary' %>
     </div>
   <% end %>
