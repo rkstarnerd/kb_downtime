@@ -2,6 +2,7 @@ require 'elasticsearch/model'
 
 class Article < ActiveRecord::Base
   belongs_to :user
+  has_many   :comments
 
   validates :question, presence: true, length: {minimum: 3}
 
