@@ -20,11 +20,12 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @comment = Comment.new
   end
 
   def create
     @article = Article.new(article_params)
-
+    
     if @article.save
       flash[:success] = "Your article was created"
       redirect_to article_path(@article)
@@ -34,11 +35,15 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    if @article.update(article_params)
+    @comment = @article.comments.build(params.require(:comment).permit(:id, :body)) 
+    @comment.user_id = current_user.id
+
+    if @article.update(article_params) && @comment.save 
       flash[:success] = "The article was updated."
       redirect_to article_path(@article)
     else
-      render 'edit'
+      flash[:error] = "Fill in the blank field"
+      redirect_to :back
     end
   end
 
