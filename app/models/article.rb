@@ -2,9 +2,12 @@ require 'elasticsearch/model'
 
 class Article < ActiveRecord::Base
   belongs_to :user
-  has_many   :comments
+  has_many   :comments, dependent: :destroy
+
+  accepts_nested_attributes_for :comments
 
   validates :question, presence: true, length: {minimum: 3}
+  validates :answer,   presence: true
 
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
