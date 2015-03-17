@@ -10,5 +10,11 @@ module ApplicationHelper
     end
     z_number
   end
+
+  def time_of_article(dt)
+    # if dt.nil?
+    #   dt
+    dt = dt.strftime("%A, %m/%d/%Y at %l:%M %P %Z")
+  end
 end
 

@@ -19,14 +19,15 @@
   <%= link_to 'Delete this article', article_path(article), confirm: 'Are you sure?', method: :delete %>
 
   <%= render 'shared/error', form: @comment %>
-
-  <h5>Create a comment:</h5>
+  <p>
+  <br/>
+  <strong>Create a comment:</strong>
   <%= form_for [@article, @comment] do |f| %>
     <%= f.text_area :body %>
-    <br>
+    <br/>
+    </br>
     <%= f.submit "Create comment", class: 'btn btn-primary' %>
   <% end %>
-
   <p>
   <% @article.comments.each do |comment| %>
     <%= render 'comments/comment', comment: comment %>
