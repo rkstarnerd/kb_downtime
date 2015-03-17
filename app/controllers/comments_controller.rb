@@ -5,7 +5,7 @@ class Comments < ApplicationController
   def create
     @article = Article.find_by(params[:article_id]
     @comment = @article.comments.build(params.require(:comment).permit(:body)
-    @comment.user_id = current_user
+    @comment.user_id = current_user.id
 
     if @comment.save
       flash[:notice] = "Your comment was added."
