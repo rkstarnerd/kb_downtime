@@ -35,7 +35,7 @@ end
 def email_form
   @user = current_user
 
-  EmailForms.email_form(@dt_cr, @user).deliver
+  #EmailForms.email_form(@dt_cr, @user).deliver
   flash[:notice] = "The form has been sent."
   redirect_to dt_cr_path(@dt_cr)
 end
