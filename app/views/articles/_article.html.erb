@@ -16,7 +16,7 @@
 
 <% if logged_in? && current_user.admin? %>
   <%= link_to 'Edit this article', edit_article_path(article) %><br/>
-  <%= link_to 'Delete this article', article_path(article), data: { confirm: 'Are you sure?' }, method: :delete %>
+  <%= link_to 'Delete this article', article_path(article), data: { confirm: 'This article and associated comments will be deleted. Are you sure you?' }, method: :delete %>
 
   <%= render 'shared/error', form: @comment %>
   <p>
