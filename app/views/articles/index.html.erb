@@ -26,7 +26,7 @@
         <small>
           <% if (article.client_name.nil? || article.client_name.blank?) && (!article.vdn.nil? || !article.vdn.blank?) %> 
             General | <%= article.vdn %>
-          <% elsif (article.client_name.nil? || article.client_name.empty?) && (article.vdn.nil? || article.vdn.empty?) %>
+          <% elsif (article.client_name.nil? || article.client_name.blank?) && (article.vdn.nil? || article.vdn.blank?) %>
             General
           <% else %>
             <%= article.client_name %> | <%= article.vdn  %>
