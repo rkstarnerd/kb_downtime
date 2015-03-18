@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:q].nil?
-      @articles = Article.all[0, 10].reverse
+      @articles = Article.all[0, 20].reverse
     else
       @articles = Article.search params[:q]
     end
