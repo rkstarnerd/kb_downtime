@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :require_admin
 
   def create
-    @article = Article.find_by(params[:article_id])
+    @article = Article.find_by({id: params[:article_id]})
     @comment = @article.comments.build(params.require(:comment).permit(:body))
     @comment.user_id = current_user.id
 
