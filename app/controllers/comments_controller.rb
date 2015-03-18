@@ -11,7 +11,8 @@ class CommentsController < ApplicationController
       flash[:notice] = "Your comment was added."
       redirect_to article_path(@article)
     else
-      render 'articles/show'
+      flash[:error] = "An empty comment is not allowed."
+      redirect_to :back
     end
   end
 end
