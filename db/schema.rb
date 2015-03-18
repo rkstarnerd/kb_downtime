@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317154851) do
+ActiveRecord::Schema.define(version: 20150318102233) do
 
   create_table "articles", force: true do |t|
     t.string   "client_name"
     t.string   "question"
-    t.string   "answer"
+    t.text     "answer",      limit: 255
     t.string   "vdn"
     t.integer  "user_id"
     t.datetime "created_at"
