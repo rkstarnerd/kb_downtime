@@ -5,6 +5,7 @@ describe Article do
   it { should have_many(:comments).dependent(:destroy)}
   it { should validate_presence_of(:question)}
   it { should validate_length_of(:question)}
+  it { should validate_presence_of(:answer)}
 
   describe "search" do
     it "returns an empty array if there is no match"
