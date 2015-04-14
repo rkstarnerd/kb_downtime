@@ -68,6 +68,7 @@ group :test do
   gem 'launchy', '~> 2.4.2'
   gem 'selenium-webdriver', '~> 2.43.0'
   gem 'shoulda-matchers', '~> 2.8.0'
+  gem 'elasticsearch-extensions'
 end
 
 group :production do
