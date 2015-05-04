@@ -11,7 +11,10 @@
   <strong>Answer</strong>:
   <%= simple_format h article.answer %>
   </p>
-  <small class='quiet'>Article: <%= @article.id %></small>
+  <small class='quiet'>
+    Article: <%= @article.id %><br>
+    <%= render 'shared/creation_stats', article_type: article %>
+  </small>
 </div>
 
 <% if logged_in? && current_user.admin? %>
