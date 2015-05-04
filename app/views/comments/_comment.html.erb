@@ -5,7 +5,7 @@
     <p><%= simple_format h comment.body %></p>
     <%= render 'shared/creation_stats', article_type: comment %>
     <% if show_article %>
-      <span class='quiet'>original article: <%= link_to comment.article.title, article_path(comment.article) %></span>
+      <span class='quiet'>original article: <%= link_to comment.article.question, article_path(comment.article) %></span>
     <% end %>
     </div>
   </div>
