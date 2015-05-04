@@ -49,6 +49,12 @@
         </li>
       <% end %>
       <li>
+        <%= link_to user_path(current_user) do %>
+          <i class='icon-user'></i>
+          user profile
+        <% end %>
+      </li>
+      <li>
         <%= link_to logout_path(current_user) do %>
           <i class='icon-circle-arrow-left'></i>
           logout
