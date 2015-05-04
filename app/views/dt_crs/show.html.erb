@@ -3,8 +3,9 @@
 <%= render 'shared/panel_group' %>
 
 <p>
-<%= link_to "Edit form - #{z_number(@dt_cr.id)}", edit_dt_cr_path(@dt_cr) %>
-
+<% if @dt_cr.user == current_user %>
+  <%= link_to "Edit form - #{z_number(@dt_cr.id)}", edit_dt_cr_path(@dt_cr) %>
+<% end %>
 <p>
   <%= form_for (@dt_cr) do |f| %>
 <%= render 'shared/panel_heading', heading_number: 'headingOne', collapse_number: 'collapseOne', panel_heading_title: 'Client Information' %>
