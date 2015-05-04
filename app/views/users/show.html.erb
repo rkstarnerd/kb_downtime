@@ -1,0 +1,38 @@
+<%= render 'shared/form_heading', title: 'User profile' %>
+
+<strong><%= current_user.username %>'s Activity</strong>
+</p>
+<p>
+  <ul class="nav nav-tabs">
+    <li class='<%= 'active' if params[:tab].nil? %>'>
+      <%= link_to "Articles (#{current_user.articles.size})", user_path(current_user) %>
+    </li>
+    <li class='<%= 'active' if params[:tab] == 'comments' %>'>
+      <%= link_to "Comments (#{current_user.comments.size})", user_path(current_user, tab: 'comments') %>
+    </li>
+    <li class='<%= 'active' if params[:tab] == 'downtime_forms' %>'>
+      <%= link_to "Downtime Forms (#{current_user.dt_crs.size})", user_path(current_user, tab: 'downtime_forms') %>
+    </li>
+</ul>
+
+<!-- show articles, comments, and downtime forms -->
+<% if params[:tab].nil? %>
+  <% current_user.articles.each do |article| %>
+  <div class='span8 well'>
+    <%= link_to article.question, article_path(article) %><br>
+    <%= render 'shared/creation_stats', article_type: article %>
+  </div>
+  <% end %>
+<% elsif params[:tab] == 'comments' %>
+  <% current_user.comments.each do |comment| %>
+     <%= render 'comments/comment', comment: comment, show_article: true %>
+  <% end %>
+<% elsif params[:tab] == 'downtime_forms' %>
+  <% current_user.dt_crs.each do |dt_cr| %>
+  <div class='span8 well'>
+     <%= link_to "Downtime Form: #{z_number(dt_cr.id)}", dt_cr_path(dt_cr) %><br>
+     <%= render 'shared/creation_stats', article_type: dt_cr %>
+   </div>
+  <% end %>
+<% end %>
+</p>
