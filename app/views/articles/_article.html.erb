@@ -33,7 +33,7 @@
     <%= f.submit "Create comment", class: 'btn btn-primary' %>
   <% end %>
   <p>
-  <% @article.comments.each do |comment| %>
+  <% @article.comments.reverse.each do |comment| %>
     <%= render 'comments/comment', comment: comment %>
   <% end %>
   </p>
