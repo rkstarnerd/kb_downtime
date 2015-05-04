@@ -491,5 +491,7 @@
     </div>
   </div><br/>
 </div>
-<%= link_to "Email", controller: 'dt_crs', action: 'email_form', id: @dt_cr.id, class: 'btn btn-warning' %>
+<% if @dt_cr.user == current_user %>
+  <%= link_to "Email", controller: 'dt_crs', action: 'email_form', id: @dt_cr.id, class: 'btn btn-warning' %>
+<% end %>
 <% end %>
