@@ -14,6 +14,7 @@
   <small class='quiet'>
     Article: <%= @article.id %><br>
     <%= render 'shared/creation_stats', article_type: article %>
+    last updated on <%= time_of_article(article.updated_at) %>
   </small>
 </div>
 
