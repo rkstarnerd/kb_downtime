@@ -24,6 +24,8 @@ This application also gives a way to create Downtime Forms and forward them to t
     *Elastic search
     *ActionMailer
 
-#### To demo admin features use with the following credentials:
+###### To demo admin features, use the following credentials:
+
 username: tnwinc@tnwinc.com
+
 password: Welcome1
