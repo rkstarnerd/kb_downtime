@@ -14,12 +14,16 @@ This application also gives a way to create Downtime Forms and forward them to t
   - As the Knowledgebase evolves it should replace the Answer-line with the exception of new, unique, and undocumented cases.
 
 
-#####Features will include:
+#####Features include:
 
     *Create articles and downtime forms
     *Authentication
-    *Tracks who created every article and downtime form
+    *Tracks who created every article, comment, and downtime form
     *User roles to allow admins to edit and update articles
+    *Internal comments for admins
     *Elastic search
-    *PDF generation
     *ActionMailer
+
+#### To demo admin features use with the following credentials:
+username: tnwinc@tnwinc.com
+password: Welcome1
